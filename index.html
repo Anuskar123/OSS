@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating Systems Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Operating Systems Quiz</h1>
+            <div class="navigation-buttons">
+                <button id="quiz-btn" class="nav-btn active">Extra Quiz</button>
+                <button id="notes-btn" class="nav-btn">Study Notes</button>
+                <button id="mock-tca-btn" class="nav-btn">Mock TCA MCQs</button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="question-counter">
+                <span id="current-question">1</span> of <span id="total-questions">60</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Enhanced Extra Quiz Section -->
+            <div class="quiz-intro" id="quiz-intro" style="display: none;">
+                <div class="intro-content">
+                    <h2>🎓 Operating Systems Extra Quiz</h2>
+                    <p class="quiz-description">
+                        Master Operating Systems concepts with our comprehensive 110-question quiz featuring detailed explanations, 
+                        diverse question categories, and immediate feedback to enhance your learning experience.
+                    </p>
+                    
+                    <div class="quiz-features">
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">📚</div>
+                                <h3>Comprehensive Coverage</h3>
+                                <p>110 carefully crafted questions covering all major OS topics from file systems to process management</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💡</div>
+                                <h3>Detailed Explanations</h3>
+                                <p>Each question includes thorough explanations to help you understand the concepts and reasoning</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎯</div>
+                                <h3>Categorized Learning</h3>
+                                <p>Questions organized by topic areas including Memory Management, File Systems, Process Control, and more</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📊</div>
+                                <h3>Progress Tracking</h3>
+                                <p>Track your progress with detailed scoring, performance analysis, and review capabilities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">110</span>
+                            <span class="stat-label">Total Questions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Topic Categories</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Retake Attempts</span>
+                        </div>
+                    </div>
+                    
+                    <button id="start-extra-quiz" class="start-quiz-btn">🚀 Start Extra Quiz</button>
+                </div>
+            </div>
+
+            <div class="quiz-container" id="quiz-container" style="display: none;">
+                <div class="quiz-header">
+                    <div class="quiz-progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                        <span class="progress-text" id="progress-text">Question 1 of 110</span>
+                    </div>
+                    <div class="quiz-category" id="quiz-category"></div>
+                </div>
+
+                <div class="question-section">
+                    <h2 id="question-text"></h2>
+                </div>
+
+                <div class="options-section">
+                    <div class="option" data-option="A">
+                        <span class="option-letter">A</span>
+                        <span class="option-text" id="option-a"></span>
+                    </div>
+                    <div class="option" data-option="B">
+                        <span class="option-letter">B</span>
+                        <span class="option-text" id="option-b"></span>
+                    </div>
+                    <div class="option" data-option="C">
+                        <span class="option-letter">C</span>
+                        <span class="option-text" id="option-c"></span>
+                    </div>
+                    <div class="option" data-option="D">
+                        <span class="option-letter">D</span>
+                        <span class="option-text" id="option-d"></span>
+                    </div>
+                </div>
+
+                <div class="explanation-section" id="explanation-section" style="display: none;">
+                    <div class="explanation-header">
+                        <h3>💡 Detailed Explanation</h3>
+                        <div class="explanation-category" id="explanation-category"></div>
+                    </div>
+                    <div class="explanation-content">
+                        <p id="explanation-text"></p>
+                        <div class="key-concepts" id="key-concepts" style="display: none;">
+                            <h4>🔑 Key Concepts:</h4>
+                            <ul id="key-concepts-list"></ul>
+                        </div>
+                        <div class="related-topics" id="related-topics" style="display: none;">
+                            <h4>🔗 Related Topics:</h4>
+                            <div id="related-topics-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons-section">
+                    <button id="prev-btn" disabled>⬅️ Previous</button>
+                    <button id="next-btn">Next ➡️</button>
+                    <button id="submit-btn" style="display: none;">📝 Submit Quiz</button>
+                    <button id="show-answer-btn">💡 Show Answer</button>
+                    <button id="bookmark-btn" class="bookmark-btn">🔖 Bookmark</button>
+                </div>
+            </div>
+
+            <div class="results-section" id="results-section" style="display: none;">
+                <div class="results-header">
+                    <h2>🎉 Quiz Complete!</h2>
+                    <p class="completion-message">Congratulations on completing the Operating Systems Extra Quiz!</p>
+                </div>
+                
+                <div class="score-display">
+                    <div class="score-circle">
+                        <div class="score-value">
+                            <span id="final-score">0</span>
+                            <span class="score-total">/ 110</span>
+                        </div>
+                        <div class="percentage-display">
+                            <span id="percentage">0</span>%
+                        </div>
+                    </div>
+                    <div class="grade" id="grade"></div>
+                </div>
+                
+                <div class="performance-analysis">
+                    <h3>📊 Performance Analysis</h3>
+                    <div class="analysis-grid">
+                        <div class="analysis-item correct">
+                            <div class="analysis-icon">✅</div>
+                            <div class="analysis-content">
+                                <div class="analysis-number" id="correct-count">0</div>
+                                <div class="analysis-label">Correct Answers</div>
+                            </div>
+                        </div>
+                        <div class="analysis-item incorrect">
+                            <div class="analysis-icon">❌</div>
+                            <div class="analysis-content">
+                                <div class="analysis-number" id="incorrect-count">0</div>
+                                <div class="analysis-label">Incorrect Answers</div>
+                            </div>
+                        </div>
+                        <div class="analysis-item strong">
+                            <div class="analysis-icon">💪</div>
+                            <div class="analysis-content">
+                                <div class="analysis-number" id="strong-areas">0</div>
+                                <div class="analysis-label">Strong Areas</div>
+                            </div>
+                        </div>
+                        <div class="analysis-item improve">
+                            <div class="analysis-icon">📚</div>
+                            <div class="analysis-content">
+                                <div class="analysis-number" id="improvement-areas">0</div>
+                                <div class="analysis-label">Areas to Improve</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-breakdown" id="category-breakdown">
+                    <h3>📋 Performance by Category</h3>
+                    <div class="category-list" id="category-performance"></div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="restart-btn" class="action-btn primary">🔄 Restart Quiz</button>
+                    <button id="review-btn" class="action-btn secondary">📖 Review Answers</button>
+                    <button id="study-notes-btn" class="action-btn info">📚 Study Notes</button>
+                    <button id="mock-tca-btn" class="action-btn success">🎯 Try Mock TCA</button>
+                </div>
+            </div>
+
+            <!-- Study Notes Section -->
+            <div id="notes-section" class="section" style="display: none;">
+                <div class="content">
+                    <h2>📚 Operating Systems Study Notes</h2>
+                    
+                    <div class="notes-container">
+                        <!-- Process Management -->
+                        <div class="note-section">
+                            <h3>🔄 Process Management</h3>
+                            <div class="note-content">
+                                <h4>Process States</h4>
+                                <ul>
+                                    <li><strong>NEW:</strong> Process is being created</li>
+                                    <li><strong>READY:</strong> Process is waiting to be assigned to a processor</li>
+                                    <li><strong>RUNNING:</strong> Instructions are being executed</li>
+                                    <li><strong>BLOCKED/WAITING:</strong> Process is waiting for some event</li>
+                                    <li><strong>TERMINATED:</strong> Process has finished execution</li>
+                                </ul>
+                                
+                                <h4>Process Control Block (PCB)</h4>
+                                <p>Contains process state, program counter, CPU registers, memory management info, accounting info, and I/O status.</p>
+                                
+                                <h4>System Calls</h4>
+                                <ul>
+                                    <li><strong>fork():</strong> Creates a new process</li>
+                                    <li><strong>exec():</strong> Replaces process image with new program</li>
+                                    <li><strong>wait():</strong> Parent waits for child to terminate</li>
+                                    <li><strong>exit():</strong> Terminates process</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- CPU Scheduling -->
+                        <div class="note-section">
+                            <h3>⏰ CPU Scheduling</h3>
+                            <div class="note-content">
+                                <h4>Scheduling Algorithms</h4>
+                                <ul>
+                                    <li><strong>FCFS (First Come First Serve):</strong> Simple but can cause convoy effect</li>
+                                    <li><strong>SJF (Shortest Job First):</strong> Optimal for average waiting time</li>
+                                    <li><strong>Priority Scheduling:</strong> Can lead to starvation</li>
+                                    <li><strong>Round Robin:</strong> Fair sharing with time quantum</li>
+                                    <li><strong>Multilevel Queue:</strong> Different queues for different process types</li>
+                                </ul>
+                                
+                                <h4>Key Metrics</h4>
+                                <ul>
+                                    <li><strong>Turnaround Time:</strong> Completion time - Arrival time</li>
+                                    <li><strong>Waiting Time:</strong> Time spent waiting in ready queue</li>
+                                    <li><strong>Response Time:</strong> Time from submission to first response</li>
+                                    <li><strong>Throughput:</strong> Number of processes completed per unit time</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Memory Management -->
+                        <div class="note-section">
+                            <h3>💾 Memory Management</h3>
+                            <div class="note-content">
+                                <h4>Memory Allocation Strategies</h4>
+                                <ul>
+                                    <li><strong>First Fit:</strong> Allocate first hole big enough</li>
+                                    <li><strong>Best Fit:</strong> Allocate smallest hole big enough</li>
+                                    <li><strong>Worst Fit:</strong> Allocate largest hole</li>
+                                </ul>
+                                
+                                <h4>Fragmentation</h4>
+                                <ul>
+                                    <li><strong>Internal Fragmentation:</strong> Wasted space within allocated blocks</li>
+                                    <li><strong>External Fragmentation:</strong> Free space scattered in small blocks</li>
+                                </ul>
+                                
+                                <h4>Paging</h4>
+                                <ul>
+                                    <li>Divides memory into fixed-size frames and pages</li>
+                                    <li>Eliminates external fragmentation</li>
+                                    <li>Uses page table for address translation</li>
+                                    <li><strong>TLB:</strong> Cache for page table entries</li>
+                                </ul>
+                                
+                                <h4>Virtual Memory</h4>
+                                <ul>
+                                    <li>Allows execution of processes not entirely in memory</li>
+                                    <li><strong>Page Fault:</strong> Reference to non-resident page</li>
+                                    <li><strong>Thrashing:</strong> High paging activity, low CPU utilization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Synchronization -->
+                        <div class="note-section">
+                            <h3>🔄 Synchronization & Deadlocks</h3>
+                            <div class="note-content">
+                                <h4>Critical Section Problem</h4>
+                                <p>Three requirements: Mutual Exclusion, Progress, Bounded Waiting</p>
+                                
+                                <h4>Synchronization Tools</h4>
+                                <ul>
+                                    <li><strong>Semaphores:</strong> Integer variable with wait() and signal() operations</li>
+                                    <li><strong>Mutex:</strong> Binary semaphore for mutual exclusion</li>
+                                    <li><strong>Monitors:</strong> High-level synchronization construct</li>
+                                    <li><strong>Condition Variables:</strong> Used with monitors for condition synchronization</li>
+                                </ul>
+                                
+                                <h4>Deadlock Conditions (Coffman Conditions)</h4>
+                                <ol>
+                                    <li><strong>Mutual Exclusion:</strong> Resources cannot be shared</li>
+                                    <li><strong>Hold and Wait:</strong> Process holds resources while waiting for others</li>
+                                    <li><strong>No Preemption:</strong> Resources cannot be forcibly taken</li>
+                                    <li><strong>Circular Wait:</strong> Circular chain of waiting processes</li>
+                                </ol>
+                                
+                                <h4>Deadlock Handling</h4>
+                                <ul>
+                                    <li><strong>Prevention:</strong> Ensure one condition cannot hold</li>
+                                    <li><strong>Avoidance:</strong> Banker's algorithm</li>
+                                    <li><strong>Detection:</strong> Allow deadlock, then detect and recover</li>
+                                    <li><strong>Ignorance:</strong> Ostrich algorithm (ignore the problem)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- File Systems -->
+                        <div class="note-section">
+                            <h3>📁 File Systems</h3>
+                            <div class="note-content">
+                                <h4>File Operations</h4>
+                                <ul>
+                                    <li><strong>Create:</strong> Allocate space and directory entry</li>
+                                    <li><strong>Open:</strong> Search directory and load FCB</li>
+                                    <li><strong>Read/Write:</strong> Use file pointer for current position</li>
+                                    <li><strong>Close:</strong> Update metadata and free resources</li>
+                                    <li><strong>Delete:</strong> Remove directory entry and free space</li>
+                                </ul>
+                                
+                                <h4>Directory Structure</h4>
+                                <ul>
+                                    <li><strong>Single-level:</strong> All files in one directory</li>
+                                    <li><strong>Two-level:</strong> Separate directory for each user</li>
+                                    <li><strong>Tree-structured:</strong> Hierarchical directories</li>
+                                    <li><strong>Graph-structured:</strong> Allows shared subdirectories</li>
+                                </ul>
+                                
+                                <h4>File Allocation Methods</h4>
+                                <ul>
+                                    <li><strong>Contiguous:</strong> Files occupy consecutive blocks</li>
+                                    <li><strong>Linked:</strong> Files as linked list of blocks</li>
+                                    <li><strong>Indexed:</strong> Index block contains pointers to data blocks</li>
+                                </ul>
+                                
+                                <h4>UNIX File System</h4>
+                                <ul>
+                                    <li><strong>Inode:</strong> Contains file metadata and block pointers</li>
+                                    <li><strong>Direct blocks:</strong> Point directly to data blocks</li>
+                                    <li><strong>Indirect blocks:</strong> Point to blocks containing pointers</li>
+                                    <li><strong>File permissions:</strong> Read, write, execute for owner, group, others</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- I/O Systems -->
+                        <div class="note-section">
+                            <h3>🔌 I/O Systems</h3>
+                            <div class="note-content">
+                                <h4>I/O Methods</h4>
+                                <ul>
+                                    <li><strong>Programmed I/O:</strong> CPU controls all I/O operations</li>
+                                    <li><strong>Interrupt-driven I/O:</strong> Device signals completion via interrupts</li>
+                                    <li><strong>DMA (Direct Memory Access):</strong> Device controller transfers data directly</li>
+                                </ul>
+                                
+                                <h4>Device Types</h4>
+                                <ul>
+                                    <li><strong>Block devices:</strong> Store data in fixed-size blocks (disks)</li>
+                                    <li><strong>Character devices:</strong> Stream of characters (keyboards, mice)</li>
+                                    <li><strong>Network devices:</strong> For network communication</li>
+                                </ul>
+                                
+                                <h4>Disk Scheduling</h4>
+                                <ul>
+                                    <li><strong>FCFS:</strong> First Come First Serve</li>
+                                    <li><strong>SSTF:</strong> Shortest Seek Time First</li>
+                                    <li><strong>SCAN:</strong> Elevator algorithm</li>
+                                    <li><strong>C-SCAN:</strong> Circular SCAN</li>
+                                    <li><strong>LOOK/C-LOOK:</strong> SCAN but only goes to last request</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Inter-Process Communication -->
+                        <div class="note-section">
+                            <h3>🔗 Inter-Process Communication (IPC)</h3>
+                            <div class="note-content">
+                                <h4>IPC Mechanisms</h4>
+                                <ul>
+                                    <li><strong>Pipes:</strong> Unidirectional communication channel</li>
+                                    <li><strong>Named Pipes (FIFOs):</strong> Bidirectional, persistent pipes</li>
+                                    <li><strong>Message Queues:</strong> Messages stored in kernel</li>
+                                    <li><strong>Shared Memory:</strong> Fastest IPC method</li>
+                                    <li><strong>Semaphores:</strong> For synchronization</li>
+                                    <li><strong>Sockets:</strong> For network communication</li>
+                                </ul>
+                                
+                                <h4>Producer-Consumer Problem</h4>
+                                <p>Classic synchronization problem using bounded buffer with semaphores:</p>
+                                <ul>
+                                    <li><strong>mutex:</strong> Mutual exclusion for buffer access</li>
+                                    <li><strong>full:</strong> Count of full buffer slots</li>
+                                    <li><strong>empty:</strong> Count of empty buffer slots</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Security -->
+                        <div class="note-section">
+                            <h3>🔒 Security & Protection</h3>
+                            <div class="note-content">
+                                <h4>Protection Goals</h4>
+                                <ul>
+                                    <li><strong>Confidentiality:</strong> Information not disclosed to unauthorized parties</li>
+                                    <li><strong>Integrity:</strong> Information not modified without authorization</li>
+                                    <li><strong>Availability:</strong> Resources available when needed</li>
+                                </ul>
+                                
+                                <h4>Access Control</h4>
+                                <ul>
+                                    <li><strong>Access Matrix:</strong> Rows = domains, Columns = objects</li>
+                                    <li><strong>Access Control Lists (ACL):</strong> List of permissions per object</li>
+                                    <li><strong>Capability Lists:</strong> List of capabilities per domain</li>
+                                </ul>
+                                
+                                <h4>Authentication Methods</h4>
+                                <ul>
+                                    <li><strong>Passwords:</strong> Most common method</li>
+                                    <li><strong>Biometrics:</strong> Fingerprints, retina scans</li>
+                                    <li><strong>Smart cards:</strong> Hardware tokens</li>
+                                    <li><strong>Multi-factor:</strong> Combination of methods</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Key Formulas -->
+                        <div class="note-section">
+                            <h3>📐 Key Formulas & Calculations</h3>
+                            <div class="note-content">
+                                <h4>Memory Management</h4>
+                                <ul>
+                                    <li><strong>Logical Address:</strong> Page Number + Page Offset</li>
+                                    <li><strong>Physical Address:</strong> Frame Number + Page Offset</li>
+                                    <li><strong>Page Size:</strong> 2^offset bits</li>
+                                    <li><strong>Number of Pages:</strong> Logical Address Space / Page Size</li>
+                                </ul>
+                                
+                                <h4>Scheduling Metrics</h4>
+                                <ul>
+                                    <li><strong>Turnaround Time:</strong> Completion Time - Arrival Time</li>
+                                    <li><strong>Waiting Time:</strong> Turnaround Time - Burst Time</li>
+                                    <li><strong>Response Time:</strong> First CPU Time - Arrival Time</li>
+                                    <li><strong>CPU Utilization:</strong> (Total CPU Time / Total Time) × 100%</li>
+                                </ul>
+                                
+                                <h4>Disk Performance</h4>
+                                <ul>
+                                    <li><strong>Access Time:</strong> Seek Time + Rotational Delay + Transfer Time</li>
+                                    <li><strong>Transfer Rate:</strong> Data Size / Transfer Time</li>
+                                    <li><strong>Throughput:</strong> Requests Completed / Time Period</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Study Tips -->
+                        <div class="note-section">
+                            <h3>💡 Study Tips</h3>
+                            <div class="note-content">
+                                <h4>For Exams</h4>
+                                <ul>
+                                    <li>Understand the concepts, don't just memorize</li>
+                                    <li>Practice drawing process state diagrams</li>
+                                    <li>Work through scheduling algorithm examples</li>
+                                    <li>Understand the trade-offs between different approaches</li>
+                                    <li>Know when to use which algorithm or technique</li>
+                                </ul>
+                                
+                                <h4>Common Exam Topics</h4>
+                                <ul>
+                                    <li>Process synchronization and deadlock scenarios</li>
+                                    <li>Memory management and virtual memory</li>
+                                    <li>CPU scheduling algorithm comparisons</li>
+                                    <li>File system operations and structures</li>
+                                    <li>System call usage and implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mock-tca-section" class="section" style="display: none;">
+                <div class="content">
+                    <div class="tca-intro">
+                        <h2>🎯 Mock TCA MCQs - Operating Systems Assessment</h2>
+                        <p class="tca-subtitle">Experience a realistic TCA exam simulation with 40 comprehensive questions</p>
+                        
+                        <div class="tca-description">
+                            <div class="tca-overview">
+                                <h3>📋 About This Mock TCA</h3>
+                                <p>This mock assessment replicates the actual TCA (Test of Competency Assessment) format used in academic evaluations. 
+                                Each question is worth 2.5 points, totaling 100 points, with detailed explanations to enhance your understanding.</p>
+                                
+                                <div class="tca-features">
+                                    <div class="tca-feature">
+                                        <span class="feature-icon">⏱️</span>
+                                        <span class="feature-text">2-hour time limit (realistic exam conditions)</span>
+                                    </div>
+                                    <div class="tca-feature">
+                                        <span class="feature-icon">📝</span>
+                                        <span class="feature-text">40 multiple-choice questions (2.5 points each)</span>
+                                    </div>
+                                    <div class="tca-feature">
+                                        <span class="feature-icon">🎯</span>
+                                        <span class="feature-text">Real TCA-style questions and format</span>
+                                    </div>
+                                    <div class="tca-feature">
+                                        <span class="feature-icon">📊</span>
+                                        <span class="feature-text">Detailed performance analysis and grading</span>
+                                    </div>
+                                    <div class="tca-feature">
+                                        <span class="feature-icon">💡</span>
+                                        <span class="feature-text">Comprehensive explanations for all answers</span>
+                                    </div>
+                                    <div class="tca-feature">
+                                        <span class="feature-icon">🔄</span>
+                                        <span class="feature-text">Review mode with answer explanations</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="exam-tips">
+                                <h3>💡 Exam Success Tips</h3>
+                                <ul class="tips-list">
+                                    <li><strong>Time Management:</strong> Allocate approximately 3 minutes per question</li>
+                                    <li><strong>Read Carefully:</strong> Pay attention to keywords like "NOT", "EXCEPT", "BEST", etc.</li>
+                                    <li><strong>Eliminate Options:</strong> Rule out obviously incorrect answers first</li>
+                                    <li><strong>Review Flagged:</strong> Mark uncertain questions and return to them</li>
+                                    <li><strong>Stay Calm:</strong> Don't spend too much time on any single question</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="grading-scale">
+                                <h3>📊 Grading Scale</h3>
+                                <div class="grade-items">
+                                    <div class="grade-item excellent">A: 80-100% (Excellent)</div>
+                                    <div class="grade-item good">B: 70-79% (Good)</div>
+                                    <div class="grade-item fair">C: 60-69% (Fair)</div>
+                                    <div class="grade-item pass">D: 50-59% (Pass)</div>
+                                    <div class="grade-item fail">F: Below 50% (Needs Improvement)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tca-controls">
+                        <button id="start-exam-mode" class="tca-btn primary">🎯 Start Exam Mode</button>
+                        <button id="submit-exam" class="tca-btn success" style="display: none;">📝 Submit Exam</button>
+                        <button id="review-exam" class="tca-btn info" style="display: none;">📊 Review Results</button>
+                        <button id="retake-exam" class="tca-btn warning" style="display: none;">🔄 Retake Exam</button>
+                        <button id="show-all-answers" class="tca-btn" style="display: none;">👁️ Show All Answers</button>
+                        <button id="reset-tca-quiz" class="tca-btn">🔄 Reset Quiz</button>
+                        
+                        <div class="exam-info" id="exam-info" style="display: none;">
+                            <div class="exam-timer" id="exam-timer">⏱️ Time: <span id="timer-display">02:00:00</span></div>
+                            <div class="exam-progress">📝 Progress: <span id="answered-count">0</span>/40 questions answered</div>
+                        </div>
+                        
+                        <div class="tca-score" id="tca-score" style="display: none;">
+                            <div class="score-summary">
+                                <h3>📊 Exam Results</h3>
+                                <div class="score-details">
+                                    <div class="score-item">Score: <span id="score-value">0</span>/40 (<span id="score-percentage">0%</span>)</div>
+                                    <div class="score-item">Correct: <span id="correct-count">0</span></div>
+                                    <div class="score-item">Incorrect: <span id="incorrect-count">0</span></div>
+                                    <div class="score-item">Unanswered: <span id="unanswered-count">40</span></div>
+                                    <div class="score-item">Time Taken: <span id="time-taken">00:00:00</span></div>
+                                </div>
+                                <div class="grade-indicator" id="grade-indicator"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mcq-container">
+                        <!-- Question 1 -->
+                        <div class="mcq-question" data-question="1">
+                            <div class="question-header">
+                                <h4>Question 1 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">In a Linux file system, what is the purpose of the Super Block?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q1" value="A" id="q1a"><label for="q1a">Option A: It keeps a record of the characteristics/metadata of the filesystem.</label></li>
+                                <li><input type="radio" name="q1" value="B" id="q1b"><label for="q1b">Option B: It boots the operating system.</label></li>
+                                <li><input type="radio" name="q1" value="C" id="q1c"><label for="q1c">Option C: It locates the next free inode.</label></li>
+                                <li><input type="radio" name="q1" value="D" id="q1d"><label for="q1d">Option D: It keeps a list of the open files.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> The Super Block contains metadata about the filesystem including its size, the number of free blocks, list of free blocks, the size of the inode table, and other crucial filesystem information.
+                                <br><br><strong>💡 Key Concepts:</strong>
+                                <ul>
+                                    <li><strong>Super Block Structure:</strong> Contains filesystem type, size, status, and metadata pointers</li>
+                                    <li><strong>Critical Role:</strong> Without the Super Block, the OS cannot interpret the filesystem</li>
+                                    <li><strong>Backup Copies:</strong> Multiple copies stored at different locations for redundancy</li>
+                                    <li><strong>Mount Process:</strong> Super Block is read first when mounting a filesystem</li>
+                                </ul>
+                                <strong>🎯 TCA Tip:</strong> Remember "Super Block = Super Important metadata" - it's like the master catalog for the entire filesystem structure.
+                            </div>
+                            <div class="review-feedback" style="display: none;"></div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="mcq-question" data-question="2">
+                            <div class="question-header">
+                                <h4>Question 2 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">Priority scheduling algorithms:</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q2" value="A" id="q2a"><label for="q2a">Option A: Only work with cooperating operating systems.</label></li>
+                                <li><input type="radio" name="q2" value="B" id="q2b"><label for="q2b">Option B: Only work with pre-emptive operating systems.</label></li>
+                                <li><input type="radio" name="q2" value="C" id="q2c"><label for="q2c">Option C: Only work with real time operating systems.</label></li>
+                                <li><input type="radio" name="q2" value="D" id="q2d"><label for="q2d">Option D: Work with both pre-emptive and cooperating operating systems.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="D" style="display: none;">
+                                <strong>Correct Answer: Option D</strong><br>
+                                <em>Explanation:</em> Priority scheduling can work with both preemptive and cooperative operating systems. In preemptive systems, higher priority processes can interrupt lower priority ones. In cooperative systems, processes yield control voluntarily based on priority.
+                                <br><br><strong>💡 Key Concepts:</strong>
+                                <ul>
+                                    <li><strong>Preemptive Priority:</strong> Higher priority processes can interrupt lower priority ones</li>
+                                    <li><strong>Cooperative Priority:</strong> Processes yield based on priority awareness</li>
+                                    <li><strong>Priority Inversion:</strong> Lower priority process blocks higher priority one</li>
+                                    <li><strong>Aging Mechanism:</strong> Prevents starvation by gradually increasing priority</li>
+                                </ul>
+                                <strong>🎯 TCA Tip:</strong> Think of priority scheduling like a hospital emergency room - critical patients get immediate attention regardless of arrival time, while routine cases wait their turn.
+                            </div>
+                            <div class="review-feedback" style="display: none;"></div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="mcq-question" data-question="3">
+                            <div class="question-header">
+                                <h4>Question 3 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">With reference to the following program:<br>
+                                <pre>fatal(s)
+char *s
+{
+     perror(s);
+     exit(1);
+}
+
+main()
+{
+   int pid;
+   pid = fork();
+   if (pid > 0 )
+   {
+          wait (( int *)0);
+          printf ("ls completed\n");
+          exit(0);
+   }
+   if (pid == 0)
+   {
+           execl("/bin/ls", "ls", "-l", (char *)0);
+           fatal ("execl failed"); 
+   }
+   fatal ("fork failed");
+}</pre>
+                                Which of the following explanations about the program, when it is run, is correct?
+                            </div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q3" value="A" id="q3a"><label for="q3a">Option A: After forking the program checks to determine if the process is the child or parent. If it is the child, the process waits for a while and then terminates. The parent then runs and prints the error messages "execl failed" and "fork failed".</label></li>
+                                <li><input type="radio" name="q3" value="B" id="q3b"><label for="q3b">Option B: After forking the program checks to determine if the process is the child or parent. If it is the child, the process waits until the child process exits. The parent then runs and prints the error message "execl failed".</label></li>
+                                <li><input type="radio" name="q3" value="C" id="q3c"><label for="q3c">Option C: After forking the program checks to determine if the process is the child or parent. If it is the parent the process waits for a while and then terminates. The child then runs and prints the error message "fork failed".</label></li>
+                                <li><input type="radio" name="q3" value="D" id="q3d"><label for="q3d">Option D: After forking the program checks to determine if the process is the child or parent. If it is the parent, it is blocked on the wait() command and the child process then becomes active. The child then runs and overwrites the current process with the ls -l process. The child completes and the parent then wakes up and prints "ls completed".</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="D" style="display: none;">
+                                <strong>Correct Answer: Option D</strong><br>
+                                <em>Explanation:</em> The parent process (pid > 0) calls wait() and blocks until the child terminates. The child process (pid == 0) calls execl() to replace itself with "ls -l". When the child completes, the parent wakes up and prints "ls completed".
+                                <br><br><strong>💡 Key Concepts:</strong>
+                                <ul>
+                                    <li><strong>fork() Return Values:</strong> 0 = child, positive = parent, negative = error</li>
+                                    <li><strong>wait() Function:</strong> Parent blocks until child process terminates</li>
+                                    <li><strong>execl() System Call:</strong> Replaces current process image with new program</li>
+                                    <li><strong>Process Synchronization:</strong> Parent waits for child completion</li>
+                                </ul>
+                                <strong>🎯 TCA Tip:</strong> Remember "fork() creates, execl() replaces, wait() synchronizes" - this is a classic process creation and synchronization pattern.
+                                <br><strong>🔧 Code Flow:</strong> Parent forks → Child executes ls → Parent waits → Child exits → Parent prints completion message
+                            </div>
+                            <div class="review-feedback" style="display: none;"></div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="mcq-question" data-question="4">
+                            <div class="question-header">
+                                <h4>Question 4 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">The current permissions are rw-r-xr-x for the file fred.txt.<br>Which is the correct chmod command to give the file fred.txt the following permissions, read write and execute for the owner, read and execute for the group, execute only for everyone else?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q4" value="A" id="q4a"><label for="q4a">Option A: chmod 751 fred.txt</label></li>
+                                <li><input type="radio" name="q4" value="B" id="q4b"><label for="q4b">Option B: chmod 731 fred.txt</label></li>
+                                <li><input type="radio" name="q4" value="C" id="q4c"><label for="q4c">Option C: chmod go+rwx fred.txt</label></li>
+                                <li><input type="radio" name="q4" value="D" id="q4d"><label for="q4d">Option D: chmod a-r fred.txt</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> 751 means: Owner=7 (rwx=4+2+1), Group=5 (r-x=4+0+1), Others=1 (--x=0+0+1). This gives read, write, execute to owner; read, execute to group; execute only to others.
+                                <br><br><strong>💡 Key Concepts:</strong>
+                                <ul>
+                                    <li><strong>Octal Notation:</strong> Each digit represents permissions for owner, group, others</li>
+                                    <li><strong>Permission Values:</strong> Read=4, Write=2, Execute=1</li>
+                                    <li><strong>Calculation Method:</strong> Add values together (rwx = 4+2+1 = 7)</li>
+                                    <li><strong>Security Principle:</strong> Least privilege - give minimum necessary permissions</li>
+                                </ul>
+                                <strong>🎯 TCA Tip:</strong> Remember "Read(4) Write(2) eXecute(1)" - think of it as binary: 111₂ = 7₈. 
+                                <br><strong>📝 Quick Reference:</strong> 7=rwx, 6=rw-, 5=r-x, 4=r--, 1=--x, 0=---
+                            </div>
+                            <div class="review-feedback" style="display: none;"></div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 20 - Page Table Question with Image -->
+                        <div class="mcq-question" data-question="20">
+                            <h4>Question 20 (2.5 Points)</h4>
+                            <div class="mcq-q">In the page relocation system below, the memory address 0101010110011011 is to be relocated using the page table.<br>
+                                What will the relocated memory address be?<br><br>
+                                <strong>Page Table:</strong><br>
+                                <img src="images/memoryadd.png" alt="Page Table for Memory Address Translation" style="max-width:400px;display:block;margin:10px 0;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div style="display:none;background:#f0f0f0;padding:10px;margin:10px 0;">
+                                    <strong>Page Table (Image not available):</strong><br>
+                                    This image shows the page table used for memory address translation.<br>
+                                    The virtual address 0101010110011011 needs to be translated using this page table.
+                                </div>
+                            </div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q20" value="A" id="q20a"><label for="q20a">Option A: 1110010110011011</label></li>
+                                <li><input type="radio" name="q20" value="B" id="q20b"><label for="q20b">Option B: 0101010110011011</label></li>
+                                <li><input type="radio" name="q20" value="C" id="q20c"><label for="q20c">Option C: 1001010110011011</label></li>
+                                <li><input type="radio" name="q20" value="D" id="q20d"><label for="q20d">Option D: 0001010110011011</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> The virtual address is split into page number and offset. The page number is used to look up the frame number in the page table, then combined with the offset to form the physical address.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 22 - Producer-Consumer with Image -->
+                        <div class="mcq-question" data-question="22">
+                            <h4>Question 22 (2.5 Points)</h4>
+                            <div class="mcq-q">In the following producer - consumer algorithm:<br><br>
+                                <img src="images/poducer.png" alt="Producer-Consumer Algorithm" style="max-width:400px;display:block;margin:10px 0;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div style="display:none;background:#f0f0f0;padding:10px;margin:10px 0;">
+                                    <strong>Producer-Consumer Algorithm (Image not available):</strong><br>
+                                    <pre>
+Producer:
+while(true) {
+    produce item
+    wait(free)
+    wait(mutex)
+    add item to buffer
+    signal(mutex)
+    signal(used)
+}
+
+Consumer:
+while(true) {
+    wait(used)
+    wait(mutex)
+    remove item from buffer
+    signal(mutex)
+    signal(free)
+    consume item
+}
+                                    </pre>
+                                </div>
+                                <br>What does 'wait(free)' do?
+                            </div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q22" value="A" id="q22a"><label for="q22a">Option A: Decrements the free semaphore if there is a space available.</label></li>
+                                <li><input type="radio" name="q22" value="B" id="q22b"><label for="q22b">Option B: Decrements the free semaphore if the shared buffer is not being accessed by another process.</label></li>
+                                <li><input type="radio" name="q22" value="C" id="q22c"><label for="q22c">Option C: Increments the free semaphore if the shared buffer is not being accessed by another process.</label></li>
+                                <li><input type="radio" name="q22" value="D" id="q22d"><label for="q22d">Option D: Increments the free semaphore if there is a space available.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> wait(free) decrements the free semaphore (which counts available spaces in the buffer). If free is 0 (buffer full), the producer blocks until a space becomes available.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 32 - Program with Image -->
+                        <div class="mcq-question" data-question="32">
+                            <h4>Question 32 (2.5 Points)</h4>
+                            <div class="mcq-q">With reference to the following program:<br><br>
+                                <img src="images/code.png" alt="Program Code" style="max-width:400px;display:block;margin:10px 0;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div style="display:none;background:#f0f0f0;padding:10px;margin:10px 0;">
+                                    <strong>Program Code (Image not available):</strong><br>
+                                    <pre>
+main() {
+    int pid;
+    FILE *fp;
+    
+    fp = fopen("test.txt", "w");
+    fprintf(fp, "Parent writes first\n");
+    
+    pid = fork();
+    
+    if (pid == 0) {
+        fprintf(fp, "Child writes\n");
+        fclose(fp);
+        exit(0);
+    } else {
+        wait(0);
+        fprintf(fp, "Parent writes last\n");
+        fclose(fp);
+    }
+}
+                                    </pre>
+                                </div>
+                                <br>Why does the child always run first?
+                            </div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q32" value="A" id="q32a"><label for="q32a">Option A: The lseek() command always reads the child first.</label></li>
+                                <li><input type="radio" name="q32" value="B" id="q32b"><label for="q32b">Option B: The line wait(0) puts the parent to sleep until the child has finished.</label></li>
+                                <li><input type="radio" name="q32" value="C" id="q32c"><label for="q32c">Option C: The parent file pointer fp is a different value from the child file pointer.</label></li>
+                                <li><input type="radio" name="q32" value="D" id="q32d"><label for="q32d">Option D: The line if (pid == 0) comes first in the program.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The wait(0) system call causes the parent process to suspend execution until any child process terminates. This ensures the child runs to completion before the parent continues.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="mcq-question" data-question="5">
+                            <div class="question-header">
+                                <h4>Question 5 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">Which of the following is true about threads?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q5" value="A" id="q5a"><label for="q5a">Option A: Threads can only run in user mode.</label></li>
+                                <li><input type="radio" name="q5" value="B" id="q5b"><label for="q5b">Option B: All threads of a process share the same memory space.</label></li>
+                                <li><input type="radio" name="q5" value="C" id="q5c"><label for="q5c">Option C: Creating a thread is more expensive than creating a process.</label></li>
+                                <li><input type="radio" name="q5" value="D" id="q5d"><label for="q5d">Option D: Threads cannot be preempted.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Threads within the same process share the same memory space (code, data, heap), which allows for efficient communication but requires synchronization mechanisms to prevent race conditions.
+                            </div>
+                            <div class="review-feedback" style="display: none;"></div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 6 -->
+                        <div class="mcq-question" data-question="6">
+                            <div class="question-header">
+                                <h4>Question 6 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">In memory management, what is external fragmentation?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q6" value="A" id="q6a"><label for="q6a">Option A: When a process cannot fit in available memory blocks due to their size.</label></li>
+                                <li><input type="radio" name="q6" value="B" id="q6b"><label for="q6b">Option B: When memory blocks are too small to be useful.</label></li>
+                                <li><input type="radio" name="q6" value="C" id="q6c"><label for="q6c">Option C: When there is enough total free memory but it is not contiguous.</label></li>
+                                <li><input type="radio" name="q6" value="D" id="q6d"><label for="q6d">Option D: When virtual memory exceeds physical memory.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="C" style="display: none;">
+                                <strong>Correct Answer: Option C</strong><br>
+                                <em>Explanation:</em> External fragmentation occurs when free memory is broken into small pieces scattered throughout memory, making it impossible to allocate large contiguous blocks even when total free memory is sufficient.
+                            </div>
+                            <div class="review-feedback" style="display: none;"></div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div class="mcq-question" data-question="7">
+                            <div class="question-header">
+                                <h4>Question 7 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">What is the purpose of the Translation Lookaside Buffer (TLB)?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q7" value="A" id="q7a"><label for="q7a">Option A: To store frequently used pages in memory.</label></li>
+                                <li><input type="radio" name="q7" value="B" id="q7b"><label for="q7b">Option B: To cache virtual-to-physical address translations.</label></li>
+                                <li><input type="radio" name="q7" value="C" id="q7c"><label for="q7c">Option C: To buffer I/O operations.</label></li>
+                                <li><input type="radio" name="q7" value="D" id="q7d"><label for="q7d">Option D: To store interrupt vectors.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The TLB is a high-speed cache that stores recent virtual-to-physical address translations to avoid expensive page table lookups for frequently accessed pages.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 8 -->
+                        <div class="mcq-question" data-question="8">
+                            <h4>Question 8 (2.5 Points)</h4>
+                            <div class="mcq-q">Which scheduling algorithm can lead to starvation?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q8" value="A" id="q8a"><label for="q8a">Option A: Round Robin</label></li>
+                                <li><input type="radio" name="q8" value="B" id="q8b"><label for="q8b">Option B: First Come First Serve</label></li>
+                                <li><input type="radio" name="q8" value="C" id="q8c"><label for="q8c">Option C: Priority Scheduling</label></li>
+                                <li><input type="radio" name="q8" value="D" id="q8d"><label for="q8d">Option D: Shortest Job First</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="C" style="display: none;">
+                                <strong>Correct Answer: Option C</strong><br>
+                                <em>Explanation:</em> Priority scheduling can cause starvation when high-priority processes continuously arrive, preventing low-priority processes from ever being executed.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 9 -->
+                        <div class="mcq-question" data-question="9">
+                            <div class="question-header">
+                                <h4>Question 9 (2.5 Points)</h4>
+                                <div class="question-status" data-status="unanswered">❓</div>
+                            </div>
+                            <div class="mcq-q">What is a deadlock?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q9" value="A" id="q9a"><label for="q9a">Option A: When a process takes too long to execute.</label></li>
+                                <li><input type="radio" name="q9" value="B" id="q9b"><label for="q9b">Option B: When two or more processes are blocked forever, each waiting for resources held by others.</label></li>
+                                <li><input type="radio" name="q9" value="C" id="q9c"><label for="q9c">Option C: When the CPU is idle.</label></li>
+                                <li><input type="radio" name="q9" value="D" id="q9d"><label for="q9d">Option D: When memory is fully allocated.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Deadlock occurs when two or more processes are permanently blocked, each waiting for resources currently held by other processes in the set, creating a circular wait condition.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 10 -->
+                        <div class="mcq-question" data-question="10">
+                            <h4>Question 10 (2.5 Points)</h4>
+                            <div class="mcq-q">In a paging system, what is a page fault?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q10" value="A" id="q10a"><label for="q10a">Option A: When a page is corrupted.</label></li>
+                                <li><input type="radio" name="q10" value="B" id="q10b"><label for="q10b">Option B: When a referenced page is not in physical memory.</label></li>
+                                <li><input type="radio" name="q10" value="C" id="q10c"><label for="q10c">Option C: When virtual memory is exhausted.</label></li>
+                                <li><input type="radio" name="q10" value="D" id="q10d"><label for="q10d">Option D: When the page table is full.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> A page fault occurs when a process attempts to access a page that is currently not loaded in physical memory, triggering the operating system to load the page from secondary storage.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 11 -->
+                        <div class="mcq-question" data-question="11">
+                            <h4>Question 11 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is not a valid process state?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q11" value="A" id="q11a"><label for="q11a">Option A: NEW</label></li>
+                                <li><input type="radio" name="q11" value="B" id="q11b"><label for="q11b">Option B: READY</label></li>
+                                <li><input type="radio" name="q11" value="C" id="q11c"><label for="q11c">Option C: RUNNING</label></li>
+                                <li><input type="radio" name="q11" value="D" id="q11d"><label for="q11d">Option D: SUSPENDED</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="D" style="display: none;">
+                                <strong>Correct Answer: Option D</strong><br>
+                                <em>Explanation:</em> In the standard 5-state process model, the valid states are NEW, READY, RUNNING, BLOCKED, and EXIT. SUSPENDED is not a standard process state in this model.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 12 -->
+                        <div class="mcq-question" data-question="12">
+                            <h4>Question 12 (2.5 Points)</h4>
+                            <div class="mcq-q">The command used to create a new file in UNIX is:</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q12" value="A" id="q12a"><label for="q12a">Option A: mkfile</label></li>
+                                <li><input type="radio" name="q12" value="B" id="q12b"><label for="q12b">Option B: newfile</label></li>
+                                <li><input type="radio" name="q12" value="C" id="q12c"><label for="q12c">Option C: touch</label></li>
+                                <li><input type="radio" name="q12" value="D" id="q12d"><label for="q12d">Option D: filecreate</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="C" style="display: none;">
+                                <strong>Correct Answer: Option C</strong><br>
+                                <em>Explanation:</em> The 'touch' command is used to create new empty files in UNIX/Linux systems. It can also update the timestamp of existing files.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 13 -->
+                        <div class="mcq-question" data-question="13">
+                            <h4>Question 13 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following commands is used to remove a directory in UNIX?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q13" value="A" id="q13a"><label for="q13a">Option A: rmdir</label></li>
+                                <li><input type="radio" name="q13" value="B" id="q13b"><label for="q13b">Option B: removedir</label></li>
+                                <li><input type="radio" name="q13" value="C" id="q13c"><label for="q13c">Option C: deldir</label></li>
+                                <li><input type="radio" name="q13" value="D" id="q13d"><label for="q13d">Option D: rm -r</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> The 'rmdir' command is specifically used to remove empty directories in UNIX/Linux. For directories with content, 'rm -r' would be used, but rmdir is the primary command for directory removal.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 14 -->
+                        <div class="mcq-question" data-question="14">
+                            <h4>Question 14 (2.5 Points)</h4>
+                            <div class="mcq-q">The primary purpose of the shell in UNIX is to:</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q14" value="A" id="q14a"><label for="q14a">Option A: Manage hardware resources</label></li>
+                                <li><input type="radio" name="q14" value="B" id="q14b"><label for="q14b">Option B: Provide a user interface for command execution</label></li>
+                                <li><input type="radio" name="q14" value="C" id="q14c"><label for="q14c">Option C: Control network connections</label></li>
+                                <li><input type="radio" name="q14" value="D" id="q14d"><label for="q14d">Option D: Monitor system performance</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The shell serves as a command-line interface that provides users with a way to interact with the operating system by executing commands and programs.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 15 -->
+                        <div class="mcq-question" data-question="15">
+                            <h4>Question 15 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is a characteristic of a microkernel?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q15" value="A" id="q15a"><label for="q15a">Option A: All device drivers run in kernel mode.</label></li>
+                                <li><input type="radio" name="q15" value="B" id="q15b"><label for="q15b">Option B: The microkernel itself is large and complex.</label></li>
+                                <li><input type="radio" name="q15" value="C" id="q15c"><label for="q15c">Option C: It manages memory, processes, and communication between processes.</label></li>
+                                <li><input type="radio" name="q15" value="D" id="q15d"><label for="q15d">Option D: It does not provide any form of inter-process communication.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="C" style="display: none;">
+                                <strong>Correct Answer: Option C</strong><br>
+                                <em>Explanation:</em> A microkernel provides only essential services like memory management, process management, and basic IPC. Other services like device drivers run in user space, keeping the kernel small and modular.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 16 -->
+                        <div class="mcq-question" data-question="16">
+                            <h4>Question 16 (2.5 Points)</h4>
+                            <div class="mcq-q">In the context of operating systems, what does IPC stand for?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q16" value="A" id="q16a"><label for="q16a">Option A: Inter-Process Communication</label></li>
+                                <li><input type="radio" name="q16" value="B" id="q16b"><label for="q16b">Option B: Internal Processor Control</label></li>
+                                <li><input type="radio" name="q16" value="C" id="q16c"><label for="q16c">Option C: Integrated Peripheral Communication</label></li>
+                                <li><input type="radio" name="q16" value="D" id="q16d"><label for="q16d">Option D: Inter-Program Communication</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> IPC stands for Inter-Process Communication, which refers to mechanisms that allow processes to communicate and synchronize their actions.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 17 -->
+                        <div class="mcq-question" data-question="17">
+                            <h4>Question 17 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is not a method of inter-process communication in UNIX?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q17" value="A" id="q17a"><label for="q17a">Option A: Pipes</label></li>
+                                <li><input type="radio" name="q17" value="B" id="q17b"><label for="q17b">Option B: Shared Memory</label></li>
+                                <li><input type="radio" name="q17" value="C" id="q17c"><label for="q17c">Option C: Message Queues</label></li>
+                                <li><input type="radio" name="q17" value="D" id="q17d"><label for="q17d">Option D: Mutexes</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="D" style="display: none;">
+                                <strong>Correct Answer: Option D</strong><br>
+                                <em>Explanation:</em> Mutexes are synchronization primitives used for mutual exclusion, not communication. Pipes, shared memory, and message queues are actual IPC mechanisms that allow data exchange between processes.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 18 -->
+                        <div class="mcq-question" data-question="18">
+                            <h4>Question 18 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following best describes virtual memory?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q18" value="A" id="q18a"><label for="q18a">Option A: Physical memory used by the operating system only.</label></li>
+                                <li><input type="radio" name="q18" value="B" id="q18b"><label for="q18b">Option B: A memory management technique that allows execution of processes not completely in memory.</label></li>
+                                <li><input type="radio" name="q18" value="C" id="q18c"><label for="q18c">Option C: Memory that exists only on the hard disk.</label></li>
+                                <li><input type="radio" name="q18" value="D" id="q18d"><label for="q18d">Option D: A type of cache memory.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Virtual memory is a memory management technique that allows the operating system to execute processes that may not be completely loaded in physical memory, using secondary storage as an extension of main memory.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 19 -->
+                        <div class="mcq-question" data-question="19">
+                            <h4>Question 19 (2.5 Points)</h4>
+                            <div class="mcq-q">What is the main advantage of using threads over processes?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q19" value="A" id="q19a"><label for="q19a">Option A: Threads are more secure than processes.</label></li>
+                                <li><input type="radio" name="q19" value="B" id="q19b"><label for="q19b">Option B: Threads require less memory and have faster creation/switching times.</label></li>
+                                <li><input type="radio" name="q19" value="C" id="q19c"><label for="q19c">Option C: Threads cannot crash the entire application.</label></li>
+                                <li><input type="radio" name="q19" value="D" id="q19d"><label for="q19d">Option D: Threads can run on multiple CPUs simultaneously without any coordination.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Threads require less memory overhead since they share the same address space, and thread creation and context switching are faster than process operations because they don't require changing memory contexts.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 21 -->
+                        <div class="mcq-question" data-question="21">
+                            <h4>Question 21 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is a disadvantage of the First Come First Serve (FCFS) scheduling algorithm?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q21" value="A" id="q21a"><label for="q21a">Option A: It is too complex to implement.</label></li>
+                                <li><input type="radio" name="q21" value="B" id="q21b"><label for="q21b">Option B: It can cause the convoy effect.</label></li>
+                                <li><input type="radio" name="q21" value="C" id="q21c"><label for="q21c">Option C: It requires knowledge of process execution times.</label></li>
+                                <li><input type="radio" name="q21" value="D" id="q21d"><label for="q21d">Option D: It cannot handle real-time processes.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> FCFS can suffer from the convoy effect, where short processes get blocked behind long-running processes, leading to poor average turnaround time and reduced system throughput.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 23 -->
+                        <div class="mcq-question" data-question="23">
+                            <h4>Question 23 (2.5 Points)</h4>
+                            <div class="mcq-q">In a semaphore implementation, what does the wait() (P) operation do?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q23" value="A" id="q23a"><label for="q23a">Option A: Increments the semaphore value and wakes up a waiting process.</label></li>
+                                <li><input type="radio" name="q23" value="B" id="q23b"><label for="q23b">Option B: Decrements the semaphore value and blocks if the result is negative.</label></li>
+                                <li><input type="radio" name="q23" value="C" id="q23c"><label for="q23c">Option C: Checks the semaphore value without modifying it.</label></li>
+                                <li><input type="radio" name="q23" value="D" id="q23d"><label for="q23d">Option D: Resets the semaphore value to zero.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The wait() operation decrements the semaphore value. If the result becomes negative, the calling process is blocked until another process performs a signal() operation.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 24 -->
+                        <div class="mcq-question" data-question="24">
+                            <h4>Question 24 (2.5 Points)</h4>
+                            <div class="mcq-q">What is thrashing in the context of virtual memory?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q24" value="A" id="q24a"><label for="q24a">Option A: When virtual memory exceeds available disk space.</label></li>
+                                <li><input type="radio" name="q24" value="B" id="q24b"><label for="q24b">Option B: When the system spends more time paging than executing processes.</label></li>
+                                <li><input type="radio" name="q24" value="C" id="q24c"><label for="q24c">Option C: When pages are allocated but never used.</label></li>
+                                <li><input type="radio" name="q24" value="D" id="q24d"><label for="q24d">Option D: When the page table becomes corrupted.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Thrashing occurs when the system is spending most of its time swapping pages in and out of memory rather than executing processes, usually due to insufficient physical memory for the active processes.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 25 -->
+                        <div class="mcq-question" data-question="25">
+                            <h4>Question 25 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is true about the Banker's algorithm?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q25" value="A" id="q25a"><label for="q25a">Option A: It prevents deadlock by ensuring processes are executed in order of priority.</label></li>
+                                <li><input type="radio" name="q25" value="B" id="q25b"><label for="q25b">Option B: It prevents deadlock by ensuring that resource allocation leaves the system in a safe state.</label></li>
+                                <li><input type="radio" name="q25" value="C" id="q25c"><label for="q25c">Option C: It detects deadlock after it has occurred.</label></li>
+                                <li><input type="radio" name="q25" value="D" id="q25d"><label for="q25d">Option D: It recovers from deadlock by terminating the lowest priority process.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The Banker's algorithm prevents deadlock by ensuring that resource allocation always leaves the system in a safe state where all processes can complete their execution.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 26 -->
+                        <div class="mcq-question" data-question="26">
+                            <h4>Question 26 (2.5 Points)</h4>
+                            <div class="mcq-q">What is the purpose of the fork() system call in UNIX?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q26" value="A" id="q26a"><label for="q26a">Option A: To terminate a process.</label></li>
+                                <li><input type="radio" name="q26" value="B" id="q26b"><label for="q26b">Option B: To create a new process.</label></li>
+                                <li><input type="radio" name="q26" value="C" id="q26c"><label for="q26c">Option C: To replace the current process with a new program.</label></li>
+                                <li><input type="radio" name="q26" value="D" id="q26d"><label for="q26d">Option D: To wait for a child process to terminate.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The fork() system call creates a new process (child) that is an exact copy of the calling process (parent), allowing concurrent execution of multiple processes.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 27 -->
+                        <div class="mcq-question" data-question="27">
+                            <h4>Question 27 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is not a necessary condition for deadlock?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q27" value="A" id="q27a"><label for="q27a">Option A: Mutual Exclusion</label></li>
+                                <li><input type="radio" name="q27" value="B" id="q27b"><label for="q27b">Option B: Hold and Wait</label></li>
+                                <li><input type="radio" name="q27" value="C" id="q27c"><label for="q27c">Option C: Preemption</label></li>
+                                <li><input type="radio" name="q27" value="D" id="q27d"><label for="q27d">Option D: Circular Wait</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="C" style="display: none;">
+                                <strong>Correct Answer: Option C</strong><br>
+                                <em>Explanation:</em> The four necessary conditions for deadlock are Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait. Preemption actually helps prevent deadlock by allowing resources to be forcibly taken from processes.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 28 -->
+                        <div class="mcq-question" data-question="28">
+                            <h4>Question 28 (2.5 Points)</h4>
+                            <div class="mcq-q">In a paging system, what is the purpose of the page replacement algorithm?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q28" value="A" id="q28a"><label for="q28a">Option A: To decide which pages to load into memory initially.</label></li>
+                                <li><input type="radio" name="q28" value="B" id="q28b"><label for="q28b">Option B: To choose which page to remove from memory when a new page needs to be loaded.</label></li>
+                                <li><input type="radio" name="q28" value="C" id="q28c"><label for="q28c">Option C: To determine the size of each page.</label></li>
+                                <li><input type="radio" name="q28" value="D" id="q28d"><label for="q28d">Option D: To encrypt pages for security.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Page replacement algorithms determine which page to evict from physical memory when all frames are occupied and a new page needs to be loaded, aiming to minimize future page faults.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 29 -->
+                        <div class="mcq-question" data-question="29">
+                            <h4>Question 29 (2.5 Points)</h4>
+                            <div class="mcq-q">What is a race condition?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q29" value="A" id="q29a"><label for="q29a">Option A: When processes compete for CPU time.</label></li>
+                                <li><input type="radio" name="q29" value="B" id="q29b"><label for="q29b">Option B: When the output of a program depends on the relative timing of events.</label></li>
+                                <li><input type="radio" name="q29" value="C" id="q29c"><label for="q29c">Option C: When a process runs faster than expected.</label></li>
+                                <li><input type="radio" name="q29" value="D" id="q29d"><label for="q29d">Option D: When multiple processes finish at the same time.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> A race condition occurs when the final outcome of a program depends on the unpredictable order in which processes or threads access shared resources, leading to inconsistent results.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 30 -->
+                        <div class="mcq-question" data-question="30">
+                            <h4>Question 30 (2.5 Points)</h4>
+                            <div class="mcq-q">Which page replacement algorithm has the best theoretical performance?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q30" value="A" id="q30a"><label for="q30a">Option A: FIFO (First In First Out)</label></li>
+                                <li><input type="radio" name="q30" value="B" id="q30b"><label for="q30b">Option B: LRU (Least Recently Used)</label></li>
+                                <li><input type="radio" name="q30" value="C" id="q30c"><label for="q30c">Option C: Optimal (Belady's Algorithm)</label></li>
+                                <li><input type="radio" name="q30" value="D" id="q30d"><label for="q30d">Option D: Random</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="C" style="display: none;">
+                                <strong>Correct Answer: Option C</strong><br>
+                                <em>Explanation:</em> The Optimal algorithm (Belady's Algorithm) has the best theoretical performance as it replaces the page that will be accessed farthest in the future, but it's impractical since it requires knowledge of future memory accesses.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 31 -->
+                        <div class="mcq-question" data-question="31">
+                            <h4>Question 31 (2.5 Points)</h4>
+                            <div class="mcq-q">What is the main purpose of the exec() system call family in UNIX?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q31" value="A" id="q31a"><label for="q31a">Option A: To create a new process.</label></li>
+                                <li><input type="radio" name="q31" value="B" id="q31b"><label for="q31b">Option B: To replace the current process image with a new program.</label></li>
+                                <li><input type="radio" name="q31" value="C" id="q31c"><label for="q31c">Option C: To terminate the current process.</label></li>
+                                <li><input type="radio" name="q31" value="D" id="q31d"><label for="q31d">Option D: To suspend the current process.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The exec() family of system calls replaces the current process image with a new program, allowing a process to run a different program while maintaining the same process ID.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 33 -->
+                        <div class="mcq-question" data-question="33">
+                            <h4>Question 33 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is true about monitors in concurrent programming?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q33" value="A" id="q33a"><label for="q33a">Option A: They allow multiple processes to execute within them simultaneously.</label></li>
+                                <li><input type="radio" name="q33" value="B" id="q33b"><label for="q33b">Option B: They ensure mutual exclusion automatically.</label></li>
+                                <li><input type="radio" name="q33" value="C" id="q33c"><label for="q33c">Option C: They are implemented using semaphores only.</label></li>
+                                <li><input type="radio" name="q33" value="D" id="q33d"><label for="q33d">Option D: They cannot handle condition synchronization.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Monitors automatically ensure mutual exclusion by allowing only one process to be active within the monitor at any time, providing a higher-level synchronization construct than semaphores.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 34 -->
+                        <div class="mcq-question" data-question="34">
+                            <h4>Question 34 (2.5 Points)</h4>
+                            <div class="mcq-q">What is the primary advantage of segmentation over paging?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q34" value="A" id="q34a"><label for="q34a">Option A: Segmentation provides better memory utilization.</label></li>
+                                <li><input type="radio" name="q34" value="B" id="q34b"><label for="q34b">Option B: Segmentation supports logical division of programs.</label></li>
+                                <li><input type="radio" name="q34" value="C" id="q34c"><label for="q34c">Option C: Segmentation has no external fragmentation.</label></li>
+                                <li><input type="radio" name="q34" value="D" id="q34d"><label for="q34d">Option D: Segmentation is faster than paging.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Segmentation allows programs to be divided into logical segments (code, data, stack) that can grow and shrink independently, providing better support for program structure and sharing.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 35 -->
+                        <div class="mcq-question" data-question="35">
+                            <h4>Question 35 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is a characteristic of real-time operating systems?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q35" value="A" id="q35a"><label for="q35a">Option A: They maximize throughput.</label></li>
+                                <li><input type="radio" name="q35" value="B" id="q35b"><label for="q35b">Option B: They provide deterministic response times.</label></li>
+                                <li><input type="radio" name="q35" value="C" id="q35c"><label for="q35c">Option C: They optimize for average case performance.</label></li>
+                                <li><input type="radio" name="q35" value="D" id="q35d"><label for="q35d">Option D: They allow unlimited process execution time.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> Real-time operating systems are designed to provide predictable and deterministic response times to meet strict timing constraints, which is crucial for time-critical applications.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 36 -->
+                        <div class="mcq-question" data-question="36">
+                            <h4>Question 36 (2.5 Points)</h4>
+                            <div class="mcq-q">What is the purpose of the working set model in virtual memory?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q36" value="A" id="q36a"><label for="q36a">Option A: To determine the maximum number of pages a process can have.</label></li>
+                                <li><input type="radio" name="q36" value="B" id="q36b"><label for="q36b">Option B: To estimate the pages a process will need in the near future.</label></li>
+                                <li><input type="radio" name="q36" value="C" id="q36c"><label for="q36c">Option C: To calculate the total memory requirements of all processes.</label></li>
+                                <li><input type="radio" name="q36" value="D" id="q36d"><label for="q36d">Option D: To determine when to terminate a process.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The working set model estimates the set of pages that a process will actively use in the near future, helping to prevent thrashing by ensuring sufficient pages are kept in memory.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 37 -->
+                        <div class="mcq-question" data-question="37">
+                            <h4>Question 37 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following best describes a system call?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q37" value="A" id="q37a"><label for="q37a">Option A: A function call within a user program.</label></li>
+                                <li><input type="radio" name="q37" value="B" id="q37b"><label for="q37b">Option B: An interface between user programs and the operating system kernel.</label></li>
+                                <li><input type="radio" name="q37" value="C" id="q37c"><label for="q37c">Option C: A method for processes to communicate with each other.</label></li>
+                                <li><input type="radio" name="q37" value="D" id="q37d"><label for="q37d">Option D: A technique for memory management.</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> System calls provide a controlled interface that allows user programs to request services from the operating system kernel, such as file operations, process control, and hardware access.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 38 -->
+                        <div class="mcq-question" data-question="38">
+                            <h4>Question 38 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following commands is used to create a symbolic link in UNIX?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q38" value="A" id="q38a"><label for="q38a">Option A: ln -s</label></li>
+                                <li><input type="radio" name="q38" value="B" id="q38b"><label for="q38b">Option B: link -s</label></li>
+                                <li><input type="radio" name="q38" value="C" id="q38c"><label for="q38c">Option C: symlink</label></li>
+                                <li><input type="radio" name="q38" value="D" id="q38d"><label for="q38d">Option D: ln -f</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="A" style="display: none;">
+                                <strong>Correct Answer: Option A</strong><br>
+                                <em>Explanation:</em> The 'ln -s' command creates a symbolic (soft) link in UNIX/Linux. The -s flag specifies that it should be a symbolic link rather than a hard link.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 39 -->
+                        <div class="mcq-question" data-question="39">
+                            <h4>Question 39 (2.5 Points)</h4>
+                            <div class="mcq-q">The primary function of the kernel in an operating system is to:</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q39" value="A" id="q39a"><label for="q39a">Option A: Provide a user interface</label></li>
+                                <li><input type="radio" name="q39" value="B" id="q39b"><label for="q39b">Option B: Manage system resources and communication between hardware and software</label></li>
+                                <li><input type="radio" name="q39" value="C" id="q39c"><label for="q39c">Option C: Execute user applications</label></li>
+                                <li><input type="radio" name="q39" value="D" id="q39d"><label for="q39d">Option D: Control network connections</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="B" style="display: none;">
+                                <strong>Correct Answer: Option B</strong><br>
+                                <em>Explanation:</em> The kernel is the core of the operating system responsible for managing system resources (CPU, memory, I/O), providing hardware abstraction, and facilitating communication between hardware and software components.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <!-- Question 40 -->
+                        <div class="mcq-question" data-question="40">
+                            <h4>Question 40 (2.5 Points)</h4>
+                            <div class="mcq-q">Which of the following is not a valid file type in UNIX?</div>
+                            <ul class="mcq-options">
+                                <li><input type="radio" name="q40" value="A" id="q40a"><label for="q40a">Option A: Regular file</label></li>
+                                <li><input type="radio" name="q40" value="B" id="q40b"><label for="q40b">Option B: Directory</label></li>
+                                <li><input type="radio" name="q40" value="C" id="q40c"><label for="q40c">Option C: Character device file</label></li>
+                                <li><input type="radio" name="q40" value="D" id="q40d"><label for="q40d">Option D: Hyperlink</label></li>
+                            </ul>
+                            <div class="mcq-answer" data-correct="D" style="display: none;">
+                                <strong>Correct Answer: Option D</strong><br>
+                                <em>Explanation:</em> UNIX file types include regular files, directories, character device files, block device files, symbolic links, named pipes, and sockets. "Hyperlink" is not a valid UNIX file type.
+                            </div>
+                            <button class="reveal-answer" onclick="toggleAnswer(this)">Show Answer</button>
+                        </div>
+
+                        <div class="mcq-stats">
+                            <h3>📊 Quiz Statistics</h3>
+                            <p><strong>Total Questions:</strong> 40</p>
+                            <p><strong>Points per Question:</strong> 2.5</p>
+                            <p><strong>Total Points:</strong> 100</p>
+                            <p><strong>Categories:</strong> File Systems, Process Management, Memory Management, CPU Scheduling, Synchronization, I/O Systems, Security</p>
+                            <p><em>This comprehensive assessment covers all major Operating Systems topics in TCA format!</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
