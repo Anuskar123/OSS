@@ -265,7 +265,7 @@ Which is the child process, and why?`,
       'wrath.txt',
       'weather'
     ],
-    correctAnswer: 0,
+    correctAnswer: 1,
     explanation: 'The pattern ??ath* requires exactly 2 characters before "ath". "leather" has 2 characters before "ath" but they are "le", not matching the pattern correctly.'
   },
   {
