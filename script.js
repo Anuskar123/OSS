@@ -2288,7 +2288,7 @@ function hideAllSections() {
 }
 
 function updateActiveButton(activeId) {
-    const buttons = ['quiz-btn', 'notes-btn', 'mock-tca-btn'];
+    const buttons = ['quiz-btn', 'newq-quiz-btn', 'notes-btn', 'mock-tca-btn'];
     buttons.forEach(btnId => {
         const btn = document.getElementById(btnId);
         if (btn) {
@@ -2334,10 +2334,14 @@ function setupEventListeners() {
 
     // Navigation mode buttons
     const quizBtn = document.getElementById('quiz-btn');
+    const newqQuizBtn = document.getElementById('newq-quiz-btn');
     const notesBtn = document.getElementById('notes-btn');
     const mockTcaBtn = document.getElementById('mock-tca-btn');
 
     if (quizBtn) quizBtn.addEventListener('click', showQuizMode);
+    if (newqQuizBtn) newqQuizBtn.addEventListener('click', () => {
+        window.location.href = 'newquiz.html';
+    });
     if (notesBtn) notesBtn.addEventListener('click', showNotesMode);
     if (mockTcaBtn) mockTcaBtn.addEventListener('click', showMockTcaMode);
 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWQ Operating Systems Quiz</title>
+    <link rel="stylesheet" href="newquiz-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NEWQ Operating Systems Quiz</h1>
+            <div class="navigation-buttons">
+                <button id="back-to-main" class="nav-btn">← Back to Main Quiz</button>
+                <button id="quiz-btn" class="nav-btn active">NEWQ Quiz</button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="question-counter">
+                <span id="current-question">1</span> of <span id="total-questions">40</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- NEWQ Quiz Introduction -->
+            <div class="quiz-intro" id="quiz-intro">
+                <div class="intro-content">
+                    <h2>🎓 NEWQ Operating Systems Quiz</h2>
+                    <p class="quiz-description">
+                        Test your knowledge with this comprehensive 40-question Operating Systems quiz. 
+                        Each question includes detailed explanations to help you learn and understand the concepts better.
+                    </p>
+                    
+                    <div class="quiz-features">
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">📚</div>
+                                <h3>Comprehensive Topics</h3>
+                                <p>Covers file systems, process management, memory management, scheduling, and more</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💡</div>
+                                <h3>Detailed Explanations</h3>
+                                <p>Learn from comprehensive explanations for each answer</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎯</div>
+                                <h3>Instant Feedback</h3>
+                                <p>Get immediate feedback on your answers with explanations</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📊</div>
+                                <h3>Progress Tracking</h3>
+                                <p>Monitor your progress throughout the quiz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">40</span>
+                            <span class="stat-label">Questions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">~30</span>
+                            <span class="stat-label">Minutes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Free</span>
+                        </div>
+                    </div>
+
+                    <button id="start-quiz" class="start-button">
+                        🚀 Start NEWQ Quiz
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Section -->
+            <div class="quiz-container" id="quiz-container" style="display: none;">
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="question-type">Multiple Choice</span>
+                    </div>
+                    <h2 class="question-text" id="question-text"></h2>
+                    <div class="options-container" id="options-container"></div>
+                    <div class="question-actions">
+                        <button id="prev-question" class="action-btn secondary">← Previous</button>
+                        <button id="next-question" class="action-btn primary">Next →</button>
+                        <button id="submit-quiz" class="action-btn primary" style="display: none;">Submit Quiz</button>
+                        <button id="show-answer-btn" class="action-btn info">💡 Show Answer</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Answer Explanation Section -->
+            <div class="explanation-section" id="explanation-section" style="display: none;">
+                <div class="explanation-card">
+                    <div class="result-indicator" id="result-indicator"></div>
+                    <h3>Explanation</h3>
+                    <p id="explanation-text"></p>
+                    <button id="continue-btn" class="action-btn primary">Continue</button>
+                </div>
+            </div>
+
+            <!-- Quiz Results Section -->
+            <div class="results-container" id="results-container" style="display: none;">
+                <div class="results-card">
+                    <div class="results-header">
+                        <h2>🎉 Quiz Completed!</h2>
+                        <div class="final-score">
+                            <span class="score-value" id="final-score">0</span>
+                            <span class="score-total">/ 40</span>
+                        </div>
+                        <div class="score-percentage" id="score-percentage">0%</div>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <div class="breakdown-item correct">
+                            <span class="breakdown-label">Correct Answers</span>
+                            <span class="breakdown-value" id="correct-count">0</span>
+                        </div>
+                        <div class="breakdown-item incorrect">
+                            <span class="breakdown-label">Incorrect Answers</span>
+                            <span class="breakdown-value" id="incorrect-count">0</span>
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <button id="restart-quiz" class="action-btn primary">🔄 Retake Quiz</button>
+                        <button id="back-to-intro" class="action-btn secondary">← Back to Intro</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="newquiz.js"></script>
+</body>
+</html>
