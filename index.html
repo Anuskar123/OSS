@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating Systems Quiz - MCQs from Slides & PDFs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Operating Systems Quiz</h1>
+            <p class="subtitle">Generated from course slides and PDFs</p>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="info-card">
+                <h2>Welcome to the Quiz!</h2>
+                <p>This quiz contains multiple-choice questions extracted from your Operating Systems course materials.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalQuestions">0</span>
+                        <span class="stat-label">Questions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Options Each</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="quiz-header">
+                <div class="question-counter">
+                    Question <span id="currentQuestion">1</span> of <span id="totalQuestionsQuiz">0</span>
+                </div>
+                <div class="score-display">
+                    Score: <span id="currentScore">0</span>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 class="question-text" id="questionText">Loading question...</h2>
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+                
+                <!-- Explanation div (hidden initially) -->
+                <div id="explanationDiv" class="explanation-box" style="display: none;">
+                    <!-- Explanation content will be inserted here -->
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+                <button class="btn btn-warning" id="showAnswerBtn" onclick="showAnswer()">Show Answer</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+                <button class="btn btn-success" id="submitBtn" onclick="submitQuiz()" style="display: none;">Submit Quiz</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-card">
+                <h2>Quiz Complete! 🎉</h2>
+                <div class="final-score">
+                    <div class="score-circle">
+                        <span id="finalScore">0</span>
+                        <span class="score-total">/ <span id="totalQuestionsResult">0</span></span>
+                    </div>
+                    <p class="percentage" id="percentageScore">0%</p>
+                </div>
+                <div class="results-summary">
+                    <div class="summary-item correct">
+                        <span class="icon">✓</span>
+                        <span class="label">Correct:</span>
+                        <span class="value" id="correctCount">0</span>
+                    </div>
+                    <div class="summary-item incorrect">
+                        <span class="icon">✗</span>
+                        <span class="label">Incorrect:</span>
+                        <span class="value" id="incorrectCount">0</span>
+                    </div>
+                    <div class="summary-item unanswered">
+                        <span class="icon">○</span>
+                        <span class="label">Unanswered:</span>
+                        <span class="value" id="unansweredCount">0</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="reviewAnswers()">Review Answers</button>
+                    <button class="btn btn-secondary" onclick="restartQuiz()">Restart Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="reviewScreen" class="screen">
+            <div class="review-header">
+                <h2>Answer Review</h2>
+                <button class="btn btn-secondary" onclick="backToResults()">Back to Results</button>
+            </div>
+            <div id="reviewContainer" class="review-container">
+                <!-- Review items will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <footer>
+            <p>Quiz generated from: PDFs (6) + PPTX files (7)</p>
+            <p class="note">Note: Questions are auto-generated from course materials using text extraction</p>
+        </footer>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
