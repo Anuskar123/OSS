@@ -1,4 +1,4 @@
-# Operating Systems Quiz (Publishable Build)
+# Operating Systems Quiz 
 
 This folder contains the minimal files needed to run the quiz locally or host it on GitHub Pages.
 
@@ -29,3 +29,4 @@ Start-Process "http://localhost:8080"
 4. Wait 1–2 minutes, then open the GitHub Pages URL shown in the settings.
 
 That's it — the quiz will load `mcqs.json` from the same folder and run in the browser.
+
