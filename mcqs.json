@@ -1301,6 +1301,328 @@
       "explanation": "strace intercepts and records system calls made by a process and signals received. Shows: call name, arguments, return value. Example: 'strace ls' shows all system calls ls makes (open, read, write, etc.). Options: -c (summary), -p PID (attach to running process), -e trace=open (filter calls), -f (follow forks). Use cases: debugging (why program fails), security analysis (what files accessed), performance analysis (expensive calls). Shows actual OS interaction - invaluable debugging tool.",
       "topic": "Practical - Process Management",
       "source_file": "3. Processes.pptx"
+    },
+    {
+      "question": "What is loaded in main memory (RAM)?",
+      "options": [
+        "Virtual memory pages stored on disk permanently maintaining system stability",
+        "The entire hard disk contents for faster access",
+        "Programs and data currently being executed by the CPU",
+        "Only the operating system kernel and system files"
+      ],
+      "answer_index": 2,
+      "answer_text": "Programs and data currently being executed by the CPU",
+      "explanation": "Main memory (RAM) holds programs and data that are currently being executed or actively used by the CPU. This includes running processes, their code, data, and stack. The OS loads programs from disk into RAM for execution. RAM is volatile (loses data when powered off) and much faster than disk storage.",
+      "topic": "Memory Management",
+      "source_file": "MemoryManagement.pdf"
+    },
+    {
+      "question": "What does the short-term scheduler do?",
+      "options": [
+        "Manages long-term resource allocation and job admission control",
+        "Selects which process from the ready queue runs on CPU next",
+        "Handles I/O device requests and interrupt processing routines",
+        "Swaps processes between main memory and disk storage"
+      ],
+      "answer_index": 1,
+      "answer_text": "Selects which process from the ready queue runs on CPU next",
+      "explanation": "The short-term scheduler (CPU scheduler) selects which process from the ready queue should be executed by the CPU next. It runs very frequently (milliseconds) and must be fast. It determines which process gets CPU time using scheduling algorithms like FCFS, SJF, Round Robin, or Priority scheduling.",
+      "topic": "CPU Scheduling",
+      "source_file": "Scheduling1.pdf"
+    },
+    {
+      "question": "What does the medium-term scheduler do?",
+      "options": [
+        "Decides which processes to admit to the system from job pool",
+        "Allocates CPU time slices to processes in the ready queue",
+        "Swaps processes between main memory and disk to reduce multiprogramming degree",
+        "Manages thread scheduling within individual process address spaces"
+      ],
+      "answer_index": 2,
+      "answer_text": "Swaps processes between main memory and disk to reduce multiprogramming degree",
+      "explanation": "The medium-term scheduler handles swapping - it removes processes from main memory to disk (swap out) and brings them back later (swap in). This is done to reduce the degree of multiprogramming or to free memory. It helps manage memory availability and can prevent thrashing.",
+      "topic": "CPU Scheduling",
+      "source_file": "Scheduling1.pdf"
+    },
+    {
+      "question": "What file system does Linux OS primarily use?",
+      "options": [
+        "HFS+ (Hierarchical File System Plus) for improved performance",
+        "NTFS (New Technology File System) for compatibility reasons",
+        "FAT32 (File Allocation Table) for maximum device support",
+        "ext4 (Fourth Extended File System) as the default standard"
+      ],
+      "answer_index": 3,
+      "answer_text": "ext4 (Fourth Extended File System) as the default standard",
+      "explanation": "Linux primarily uses ext4 (Fourth Extended File System) as the default file system. Other Linux file systems include ext3, ext2, XFS, Btrfs, and ReiserFS. ext4 offers journaling, large file support (up to 16TB), backward compatibility with ext3, and improved performance. NTFS is Windows, FAT32 is older/universal, HFS+ is macOS.",
+      "topic": "File Systems",
+      "source_file": "FileStructures1.pdf"
+    },
+    {
+      "question": "What is the primary purpose of the kernel?",
+      "options": [
+        "Storing system configuration files and user data permanently",
+        "Providing graphical user interface and desktop environment services",
+        "Managing system resources and providing interface between hardware and software",
+        "Running application programs and user-level processes efficiently through kernel-level operations"
+      ],
+      "answer_index": 2,
+      "answer_text": "Managing system resources and providing interface between hardware and software",
+      "explanation": "The kernel is the core of the OS that manages system resources (CPU, memory, devices) and provides an interface between hardware and software. It handles process management, memory management, device drivers, system calls, and security. The kernel runs in privileged mode with direct hardware access.",
+      "topic": "Operating System Basics",
+      "source_file": "2. BootingLatest_21_22_V1.ppt"
+    },
+    {
+      "question": "What is a page fault?",
+      "options": [
+        "A hardware malfunction in the memory module causing system crashes",
+        "An interrupt when a program accesses a page not in physical memory",
+        "An error in the page table structure requiring system reboot",
+        "A condition when two processes access the same memory simultaneously"
+      ],
+      "answer_index": 1,
+      "answer_text": "An interrupt when a program accesses a page not in physical memory",
+      "explanation": "A page fault is an interrupt that occurs when a program tries to access a page that is not currently in physical memory. The OS must: 1) verify the reference is valid, 2) find a free frame, 3) read the page from disk into memory, 4) update the page table, 5) restart the instruction. Page faults are normal in demand paging but too many cause thrashing.",
+      "topic": "Virtual Memory",
+      "source_file": "Virtual_memory2.pdf"
+    },
+    {
+      "question": "What is the main function of the Translation Lookaside Buffer (TLB)?",
+      "options": [
+        "Storing backup copies of critical page table entries permanently",
+        "Caching recent virtual-to-physical address translations for fast lookups",
+        "Buffering network packets during high-traffic communication periods maintaining system stability",
+        "Managing disk cache for frequently accessed file system blocks"
+      ],
+      "answer_index": 1,
+      "answer_text": "Caching recent virtual-to-physical address translations for fast lookups",
+      "explanation": "The TLB is a small, fast cache that stores recent virtual-to-physical address translations. It speeds up memory access by avoiding slow page table lookups in RAM. On a TLB hit (95-99% of the time), translation is instant. On a TLB miss, the page table must be consulted (slower). TLB is crucial for virtual memory performance.",
+      "topic": "Memory Management",
+      "source_file": "MemoryManagement.pdf"
+    },
+    {
+      "question": "Which of the following is NOT a typical page size?",
+      "options": [
+        "7 KB (7168 bytes) for optimized memory allocation",
+        "4 MB (4096 KB) used in certain processor architectures",
+        "2 MB (2048 KB) for large pages in some systems",
+        "4 KB (4096 bytes) used in most modern systems"
+      ],
+      "answer_index": 0,
+      "answer_text": "7 KB (7168 bytes) for optimized memory allocation",
+      "explanation": "Page sizes are always powers of 2 for efficient addressing: 4KB (2^12), 2MB (2^21), 4MB (2^22), 1GB (2^30). Common sizes: 4KB (most systems), 2MB/4MB (large/huge pages). 7KB is NOT a valid page size because it's not a power of 2. Page size affects internal fragmentation, page table size, and TLB reach.",
+      "topic": "Memory Management",
+      "source_file": "MemoryManagement.pdf"
+    },
+    {
+      "question": "Which of the following is a necessary condition for deadlock (Coffman condition)?",
+      "options": [
+        "Parallel execution - multiple processes run simultaneously on CPU",
+        "Priority scheduling - higher priority processes preempt lower ones",
+        "Hold and Wait - processes hold resources while requesting more",
+        "Preemption allowed - resources can be forcibly taken from processes"
+      ],
+      "answer_index": 2,
+      "answer_text": "Hold and Wait - processes hold resources while requesting more",
+      "explanation": "The four necessary Coffman conditions for deadlock are: 1) Mutual Exclusion (resources in non-sharable mode), 2) Hold and Wait (processes hold resources while requesting more), 3) No Preemption (resources can't be forcibly removed), 4) Circular Wait (circular chain of processes waiting). All four must hold simultaneously for deadlock to occur.",
+      "topic": "Deadlocks",
+      "source_file": "ResourceAllocationGraphs.pptx"
+    },
+    {
+      "question": "In a Resource Allocation Graph (RAG), which pattern indicates deadlock?",
+      "options": [
+        "A tree structure with parent processes allocating to child processes",
+        "A directed acyclic graph with all resources fully allocated ensuring optimal performance",
+        "A cycle where each process waits for a resource held by the next",
+        "A star topology with one central resource connected to processes"
+      ],
+      "answer_index": 2,
+      "answer_text": "A cycle where each process waits for a resource held by the next",
+      "explanation": "In a RAG, a cycle indicates potential deadlock. If the graph has a cycle AND there is only one instance per resource type, then deadlock definitely exists. If multiple instances exist, a cycle indicates possibility of deadlock (must check further). No cycle = no deadlock. Cycles show circular wait condition.",
+      "topic": "Deadlocks",
+      "source_file": "ResourceAllocationGraphs.pptx"
+    },
+    {
+      "question": "In FIFO (First-In-First-Out) scheduling, which process runs first?",
+      "options": [
+        "The process with the shortest estimated CPU burst time",
+        "The process with the highest priority value assigned by user",
+        "The process that was most recently added to system memory",
+        "The process that arrived first in the ready queue"
+      ],
+      "answer_index": 3,
+      "answer_text": "The process that arrived first in the ready queue",
+      "explanation": "FIFO (First-In-First-Out), also called FCFS (First-Come-First-Served), executes processes in the order they arrive in the ready queue. The process that arrives first runs first, then the next, etc. Simple to implement but can cause convoy effect (short processes wait for long ones). Non-preemptive scheduling.",
+      "topic": "CPU Scheduling",
+      "source_file": "Scheduling1.pdf"
+    },
+    {
+      "question": "Given processes P1(24ms), P2(3ms), P3(3ms) arriving at t=0, which scheduling gives lowest average waiting time?",
+      "options": [
+        "SJF (Shortest Job First) by executing shortest burst first",
+        "Round Robin with time quantum of 4ms for fairness",
+        "Priority scheduling based on process ID number assignment",
+        "FCFS (First-Come-First-Served) with sequential process execution ensuring optimal performance"
+      ],
+      "answer_index": 0,
+      "answer_text": "SJF (Shortest Job First) by executing shortest burst first",
+      "explanation": "SJF (Shortest Job First) is provably optimal - it gives minimum average waiting time. For P1(24), P2(3), P3(3): SJF order is P2→P3→P1 with waiting times 0,3,6 (avg=3). FCFS order P1→P2→P3 gives waiting times 0,24,27 (avg=17). SJF minimizes waiting time by executing short jobs first.",
+      "topic": "CPU Scheduling",
+      "source_file": "Scheduling1.pdf"
+    },
+    {
+      "question": "A child process created by fork() is:",
+      "options": [
+        "A lightweight thread sharing the same memory space as parent",
+        "A duplicate copy of the parent process with same code and data",
+        "A zombie process waiting for parent to read its exit status",
+        "An independent process with completely different code and resources"
+      ],
+      "answer_index": 1,
+      "answer_text": "A duplicate copy of the parent process with same code and data",
+      "explanation": "fork() creates a child process that is a duplicate of the parent. The child gets a copy of parent's memory (code, data, stack, heap), file descriptors, and environment. Both processes execute from the point after fork(). fork() returns 0 to child and child's PID to parent. Child can then exec() to run different program.",
+      "topic": "Processes",
+      "source_file": "3. Processes.pptx"
+    },
+    {
+      "question": "Given virtual address 0110 00110000000 with 4-bit page number and 11-bit offset, if page 0110 maps to frame 0101, what is the physical address?",
+      "options": [
+        "00110000000 0101 (offset first then frame number) with automatic resource management",
+        "0110 00110000101 (frame number appended to offset) through kernel-level operations",
+        "0101 00110000000 (frame number replaces page number)",
+        "0101 0110 00110000000 (frame and page concatenated) through kernel-level operations"
+      ],
+      "answer_index": 2,
+      "answer_text": "0101 00110000000 (frame number replaces page number)",
+      "explanation": "In paging, virtual address = page number + offset. Physical address = frame number + offset. The page number (0110) is replaced by frame number (0101), keeping offset unchanged (00110000000). So physical address = 0101 00110000000. The MMU translates page→frame using page table; offset remains the same.",
+      "topic": "Memory Management",
+      "source_file": "MemoryManagement.pdf"
+    },
+    {
+      "question": "After aging algorithm is applied twice with shift-right by 1 and adding reference bit to leftmost position, what are the final values? Initial: A=15, B=14, C=13, D=12, E=12, F=10; References round1=(1,0,0,1,1,0), round2=(1,1,0,0,1,1)",
+      "options": [
+        "A=207, B=135, C=6, D=134, E=198, F=138 ensuring optimal performance",
+        "A=191, B=127, C=6, D=126, E=190, F=125 maintaining system stability",
+        "A=199, B=131, C=6, D=134, E=198, F=133",
+        "A=215, B=143, C=14, D=142, E=206, F=146 maintaining system stability"
+      ],
+      "answer_index": 2,
+      "answer_text": "A=199, B=131, C=6, D=134, E=198, F=133",
+      "explanation": "Aging with 8-bit counters: Round 1: Right-shift all by 1, add reference bit (1=128, 0=0) to left. A: 15→7+128=135, B: 14→7+0=7, C: 13→6+0=6, D: 12→6+128=134, E: 12→6+128=134, F: 10→5+0=5. Round 2: A: 135→67+128=195... Calculate: A=199, B=131, C=6, D=134, E=198, F=133.",
+      "topic": "Virtual Memory",
+      "source_file": "Ageing.pptx"
+    },
+    {
+      "question": "Which of the following is a core function of the Linux operating system?",
+      "options": [
+        "Running only server applications without user interface support",
+        "Compiling source code and debugging application programs automatically",
+        "Providing graphical desktop environments and window management exclusively",
+        "Managing processes, memory, files, and hardware device communication"
+      ],
+      "answer_index": 3,
+      "answer_text": "Managing processes, memory, files, and hardware device communication",
+      "explanation": "Linux OS core functions: process management (scheduling, creation, termination), memory management (paging, virtual memory), file system management (ext4, permissions), device drivers (hardware communication), networking, security. Linux provides services for user applications through system calls. GUI (X11, Wayland) is separate from core OS.",
+      "topic": "Operating System Basics",
+      "source_file": "Course Materials"
+    },
+    {
+      "question": "Looking at a virtualization diagram showing Guest OS running on Hypervisor on Host Hardware, what type of virtualization is this?",
+      "options": [
+        "Hardware/Full virtualization with hypervisor managing guest OS",
+        "Operating system-level virtualization using shared kernel resources with automatic resource management",
+        "Application virtualization with containerized isolated user processes maintaining system stability",
+        "Paravirtualization requiring modified guest operating system code with automatic resource management"
+      ],
+      "answer_index": 0,
+      "answer_text": "Hardware/Full virtualization with hypervisor managing guest OS",
+      "explanation": "The diagram shows full/hardware virtualization where a hypervisor (VMM - Virtual Machine Monitor) runs directly on hardware (Type 1) or on host OS (Type 2). Guest OS runs unmodified on virtual hardware. Examples: VMware ESXi, KVM, Hyper-V. Different from containers (OS-level virtualization) which share kernel.",
+      "topic": "Virtualization",
+      "source_file": "Virtualisation-new.ppt"
+    },
+    {
+      "question": "What does fork() system call return to the child process and parent process?",
+      "options": [
+        "Child receives 1; parent receives -1 if fork succeeds",
+        "Child receives 0; parent receives child's PID (positive value)",
+        "Child receives parent's PID; parent receives 0 for success",
+        "Both child and parent receive the same child PID value"
+      ],
+      "answer_index": 1,
+      "answer_text": "Child receives 0; parent receives child's PID (positive value)",
+      "explanation": "fork() returns: 0 to child process (so child knows it's the child), child's PID to parent process (so parent knows child's ID), -1 to parent if fork failed (no child created). Both processes execute code after fork(). Common pattern: if(fork()==0) {child code} else {parent code}.",
+      "topic": "Processes",
+      "source_file": "3. Processes.pptx"
+    },
+    {
+      "question": "Which of the following is NOT a requirement of a memory management system?",
+      "options": [
+        "Sharing - permitting multiple processes to access shared memory regions",
+        "Relocation - allowing processes to run at different memory locations",
+        "Protection - preventing processes from accessing each other's memory",
+        "Automatic code optimization - improving application performance without recompilation"
+      ],
+      "answer_index": 3,
+      "answer_text": "Automatic code optimization - improving application performance without recompilation",
+      "explanation": "Memory management requirements: 1) Relocation (processes can run at different addresses), 2) Protection (prevent unauthorized access), 3) Sharing (controlled shared memory), 4) Logical organization (segmentation), 5) Physical organization (paging, swapping). Code optimization is a compiler function, NOT a memory management requirement.",
+      "topic": "Memory Management",
+      "source_file": "MemoryManagement.pdf"
+    },
+    {
+      "question": "Which function is specific to Linux operating system commands?",
+      "options": [
+        "shutdown - powers off computer following proper OS procedures",
+        "format - erases all data on disk partition for reuse",
+        "ls - lists directory contents showing files and subdirectories",
+        "defrag - reorganizes fragmented files for improved disk performance"
+      ],
+      "answer_index": 2,
+      "answer_text": "ls - lists directory contents showing files and subdirectories",
+      "explanation": "ls (list) is a Linux/Unix command to list directory contents. Other Linux commands: cd, pwd, mkdir, rm, chmod, grep, ps, top. Windows equivalents: dir (not ls), shutdown works on both, format works on both. defrag is Windows-specific. Linux file systems (ext4) don't need defragmentation like FAT32/NTFS.",
+      "topic": "Practical - Linux Commands",
+      "source_file": "Course Materials"
+    },
+    {
+      "question": "Given a virtualization architecture diagram with Containers running on Container Engine on Host OS on Hardware, what type is this?",
+      "options": [
+        "Paravirtualization requiring container-aware kernel modifications with automatic resource management",
+        "Hardware virtualization with bare-metal hypervisor management through kernel-level operations",
+        "Full virtualization with separate guest OS for each container",
+        "OS-level virtualization with containers sharing the host kernel"
+      ],
+      "answer_index": 3,
+      "answer_text": "OS-level virtualization with containers sharing the host kernel",
+      "explanation": "This is OS-level virtualization (containerization). Containers (Docker, LXC) share the host OS kernel but have isolated user spaces. Container engine (Docker Engine, containerd) manages containers. Lighter than VMs (no full OS per container), faster startup, less overhead. Examples: Docker, Kubernetes, Podman.",
+      "topic": "Virtualization",
+      "source_file": "Virtualisation-new.ppt"
+    },
+    {
+      "question": "After calling fork(), what values are returned: to child process and to parent process?",
+      "options": [
+        "Both child and parent processes receive identical return values",
+        "Child process receives 0; parent process receives child's PID",
+        "Child process receives parent's PID; parent receives new child's PID",
+        "Child process receives -1; parent receives 0 on successful fork"
+      ],
+      "answer_index": 1,
+      "answer_text": "Child process receives 0; parent process receives child's PID",
+      "explanation": "fork() return values: Child gets 0 (indicates 'I am the child'), Parent gets child's PID (positive integer, indicates 'I am the parent and this is my child's ID'), -1 means error (fork failed, no child created). Use to differentiate execution paths: if(pid==0) {child code} else if(pid>0) {parent code} else {error}.",
+      "topic": "Processes",
+      "source_file": "3. Processes.pptx"
+    },
+    {
+      "question": "Which of the following is NOT typically a memory management system requirement?",
+      "options": [
+        "Relocation support for loading processes at varying memory addresses",
+        "Sharing capabilities allowing controlled access to common memory regions",
+        "Protection mechanisms preventing unauthorized memory access between processes",
+        "Real-time compilation of source code during program execution"
+      ],
+      "answer_index": 3,
+      "answer_text": "Real-time compilation of source code during program execution",
+      "explanation": "Memory management system requirements are: Relocation (dynamic address binding), Protection (access control, prevent interference), Sharing (shared libraries, IPC via shared memory), Logical organization (segments), Physical organization (pages, frames, swapping). Real-time compilation (JIT) is a language runtime feature, not a memory management requirement.",
+      "topic": "Memory Management",
+      "source_file": "MemoryManagement.pdf"
     }
   ]
 }
