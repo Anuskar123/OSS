@@ -3,12 +3,12 @@
     {
       "question": "What is a process?",
       "options": [
-        "A static program stored on disk",
+        "A collection of threads without memory used primarily in modern systems",
+        "A static program stored on disk used primarily in modern systems",
         "A program in execution with its own memory space, CPU state, and resources",
-        "Only the executable code of a program",
-        "A collection of threads without memory"
+        "Only the executable code of a program"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A program in execution with its own memory space, CPU state, and resources",
       "explanation": "A process is a program in execution. It includes the program code (text section), current activity (program counter, processor registers), stack (temporary data like function parameters and return addresses), data section (global variables), and heap (dynamically allocated memory). A process is the unit of work in an operating system.",
       "topic": "Processes",
@@ -17,12 +17,12 @@
     {
       "question": "What are the main states of a process?",
       "options": [
-        "Running and Stopped only",
-        "New, Ready, Running, Waiting, and Terminated",
+        "Start, Execute, and End",
         "Active and Inactive",
-        "Start, Execute, and End"
+        "Running and Stopped only",
+        "New, Ready, Running, Waiting, and Terminated"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "New, Ready, Running, Waiting, and Terminated",
       "explanation": "Process states: 1) New - process is being created, 2) Ready - process is waiting to be assigned to a processor, 3) Running - instructions are being executed, 4) Waiting/Blocked - process is waiting for some event (I/O completion, signal), 5) Terminated - process has finished execution. Processes transition between these states based on scheduling decisions and events.",
       "topic": "Processes",
@@ -31,12 +31,12 @@
     {
       "question": "What is a Process Control Block (PCB)?",
       "options": [
-        "A physical hardware component",
+        "The main memory allocated to a process used primarily in modern systems",
+        "A user interface for controlling processes used primarily in modern systems",
         "A data structure containing all information about a process: state, PC, registers, memory limits, I/O status, etc.",
-        "A user interface for controlling processes",
-        "The main memory allocated to a process"
+        "A physical hardware component used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A data structure containing all information about a process: state, PC, registers, memory limits, I/O status, etc.",
       "explanation": "The PCB (Process Control Block) or task control block is a kernel data structure that stores all information needed to manage a process. It includes: process state, program counter, CPU registers, CPU scheduling information, memory management information, accounting information, and I/O status information. The PCB is essential for context switching and process management.",
       "topic": "Processes",
@@ -45,10 +45,10 @@
     {
       "question": "What is context switching?",
       "options": [
-        "Switching between different programs on disk",
+        "Changing the user interface theme used primarily in modern systems",
         "Saving the state of one process and loading the state of another process",
-        "Changing the user interface theme",
-        "Transferring data between memory and disk"
+        "Switching between different programs on disk used primarily in modern systems",
+        "Transferring data between memory and disk used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "Saving the state of one process and loading the state of another process",
@@ -59,10 +59,10 @@
     {
       "question": "What is CPU scheduling?",
       "options": [
-        "Allocating memory to processes",
+        "Allocating memory to processes used primarily in modern systems",
         "Selecting which process from the ready queue should be assigned the CPU",
-        "Managing disk I/O operations",
-        "Controlling network bandwidth"
+        "Managing disk I/O operations used primarily in modern systems",
+        "Controlling network bandwidth used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "Selecting which process from the ready queue should be assigned the CPU",
@@ -73,10 +73,10 @@
     {
       "question": "What is the difference between preemptive and non-preemptive scheduling?",
       "options": [
-        "Preemptive is faster than non-preemptive",
+        "There is no difference used primarily in modern systems with built-in synchronization mechanisms",
         "Preemptive can forcibly remove a process from CPU; non-preemptive lets processes run until completion or voluntary yield",
-        "Non-preemptive is used in real-time systems only",
-        "There is no difference"
+        "Preemptive is faster than non-preemptive used primarily in modern systems",
+        "Non-preemptive is used in real-time systems only used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "Preemptive can forcibly remove a process from CPU; non-preemptive lets processes run until completion or voluntary yield",
@@ -87,12 +87,12 @@
     {
       "question": "What is First-Come, First-Served (FCFS) scheduling?",
       "options": [
-        "Processes with shortest burst time run first",
         "The simplest algorithm where processes are executed in the order they arrive in the ready queue",
-        "Highest priority processes run first",
-        "Each process gets a fixed time slice"
+        "Highest priority processes run first used primarily in modern systems",
+        "Each process gets a fixed time slice used primarily in modern systems",
+        "Processes with shortest burst time run first used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "The simplest algorithm where processes are executed in the order they arrive in the ready queue",
       "explanation": "FCFS is the simplest CPU scheduling algorithm - processes are executed in FIFO order. The process that requests the CPU first gets allocated first. It's non-preemptive and easy to implement using a FIFO queue. Disadvantage: convoy effect - short processes wait for long processes. Average waiting time can be long. Not suitable for time-sharing systems.",
       "topic": "CPU Scheduling",
@@ -101,12 +101,12 @@
     {
       "question": "What is Shortest Job First (SJF) scheduling?",
       "options": [
-        "Processes are scheduled randomly",
-        "Associates each process with its CPU burst length; shortest burst runs first (optimal for minimum waiting time)",
-        "First process in queue runs first",
-        "Based on process priority only"
+        "Based on process priority only used primarily in modern systems",
+        "Processes are scheduled randomly used primarily in modern systems with built-in synchronization mechanisms",
+        "First process in queue runs first used primarily in modern systems",
+        "Associates each process with its CPU burst length; shortest burst runs first (optimal for minimum waiting time)"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Associates each process with its CPU burst length; shortest burst runs first (optimal for minimum waiting time)",
       "explanation": "SJF scheduling associates each process with the length of its next CPU burst. When CPU is available, it's assigned to the process with the shortest next CPU burst. SJF is provably optimal - it gives minimum average waiting time. Can be preemptive (Shortest Remaining Time First) or non-preemptive. Main difficulty: knowing the length of the next CPU burst (must be predicted).",
       "topic": "CPU Scheduling",
@@ -115,12 +115,12 @@
     {
       "question": "What is Round Robin (RR) scheduling?",
       "options": [
-        "Processes run in priority order",
+        "Shortest processes run first used primarily in modern systems with built-in synchronization mechanisms",
+        "Random process selection used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization",
         "Each process gets a small time quantum; after quantum expires, process is preempted and added to end of ready queue",
-        "Shortest processes run first",
-        "Random process selection"
+        "Processes run in priority order used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Each process gets a small time quantum; after quantum expires, process is preempted and added to end of ready queue",
       "explanation": "Round Robin is designed for time-sharing systems. Each process gets a small unit of CPU time (time quantum, typically 10-100ms). After this time elapses, the process is preempted and added to the end of the ready queue. If there are n processes and time quantum is q, each process gets 1/n of CPU time in chunks of at most q time units. Performance depends on size of time quantum.",
       "topic": "CPU Scheduling",
@@ -129,12 +129,12 @@
     {
       "question": "What is priority scheduling?",
       "options": [
-        "All processes have equal priority",
         "CPU is allocated to the process with highest priority; lower priority numbers typically indicate higher priority",
-        "Based on arrival time only",
-        "Random selection"
+        "Random selection used primarily in modern systems with built-in synchronization mechanisms",
+        "All processes have equal priority used primarily in modern systems",
+        "Based on arrival time only used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "CPU is allocated to the process with highest priority; lower priority numbers typically indicate higher priority",
       "explanation": "Priority scheduling assigns a priority number to each process. CPU is allocated to the process with the highest priority. Can be preemptive or non-preemptive. Equal-priority processes are scheduled in FCFS order. Major problem: starvation - low priority processes may never execute. Solution: aging - gradually increase priority of processes that wait for long time.",
       "topic": "CPU Scheduling",
@@ -143,10 +143,10 @@
     {
       "question": "What is the purpose of memory management?",
       "options": [
-        "Only to allocate RAM to processes",
+        "To control CPU scheduling used primarily in modern systems with built-in synchronization mechanisms",
         "To track which memory parts are in use, allocate/deallocate memory, and manage swapping between main and secondary memory",
-        "To delete unused files",
-        "To control CPU scheduling"
+        "To delete unused files used primarily in modern systems with built-in synchronization mechanisms",
+        "Only to allocate RAM to processes used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "To track which memory parts are in use, allocate/deallocate memory, and manage swapping between main and secondary memory",
@@ -157,12 +157,12 @@
     {
       "question": "What is the difference between logical (virtual) and physical addresses?",
       "options": [
-        "They are the same thing",
+        "They are the same thing used primarily in modern systems",
+        "Physical addresses are larger than logical addresses used primarily in modern systems",
         "Logical address is generated by CPU (user program view); physical address is actual location in RAM",
-        "Physical addresses are larger than logical addresses",
-        "Logical addresses don't exist"
+        "Logical addresses don't exist used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Logical address is generated by CPU (user program view); physical address is actual location in RAM",
       "explanation": "Logical address (virtual address) is generated by the CPU, seen by user program, and is in the program's address space. Physical address is the actual address in physical memory (RAM). The Memory Management Unit (MMU) translates logical addresses to physical addresses at runtime. This separation allows programs to be relocated in memory and provides protection between processes.",
       "topic": "Memory Management",
@@ -171,12 +171,12 @@
     {
       "question": "What is the Memory Management Unit (MMU)?",
       "options": [
-        "A software program for managing files",
-        "A hardware device that maps virtual addresses to physical addresses at runtime",
-        "A type of RAM",
-        "The operating system kernel"
+        "A software program for managing files used primarily in modern systems",
+        "A type of RAM used primarily in modern systems",
+        "The operating system kernel used primarily in modern systems",
+        "A hardware device that maps virtual addresses to physical addresses at runtime"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "A hardware device that maps virtual addresses to physical addresses at runtime",
       "explanation": "The MMU is a hardware component that performs runtime mapping of virtual (logical) addresses to physical addresses. It sits between the CPU and memory bus. The MMU uses page tables (managed by OS) to translate addresses. It also checks permissions and can trigger page faults if a page is not in memory. Modern MMUs include TLBs (Translation Lookaside Buffers) for fast address translation.",
       "topic": "Memory Management",
@@ -185,12 +185,12 @@
     {
       "question": "What is paging?",
       "options": [
-        "Storing processes on disk permanently",
+        "A file system organization method used primarily in modern systems with built-in synchronization mechanisms",
+        "A CPU scheduling algorithm used primarily in modern systems with built-in synchronization mechanisms",
         "A memory management scheme that eliminates external fragmentation by dividing physical memory into fixed-size frames and logical memory into same-size pages",
-        "A CPU scheduling algorithm",
-        "A file system organization method"
+        "Storing processes on disk permanently used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A memory management scheme that eliminates external fragmentation by dividing physical memory into fixed-size frames and logical memory into same-size pages",
       "explanation": "Paging divides physical memory into fixed-size blocks called frames (typically 4KB) and logical memory into blocks of the same size called pages. Any page can be placed in any frame. The OS maintains a page table for each process to track page-to-frame mappings. Paging eliminates external fragmentation but can cause internal fragmentation. It enables non-contiguous memory allocation and simplified memory allocation.",
       "topic": "Memory Management",
@@ -199,12 +199,12 @@
     {
       "question": "What is a page table?",
       "options": [
-        "A table of contents in a document",
         "A data structure that maps virtual page numbers to physical frame numbers",
-        "A list of processes in memory",
-        "The operating system's main memory"
+        "A table of contents in a document",
+        "The operating system's main memory used primarily in modern systems",
+        "A list of processes in memory used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A data structure that maps virtual page numbers to physical frame numbers",
       "explanation": "The page table is a per-process data structure maintained by the OS that translates virtual page numbers to physical frame numbers. Each entry contains: frame number, present/absent bit (valid bit), protection bits (read/write/execute), modified (dirty) bit, and referenced bit. The page table base register (PTBR) points to the page table. Large address spaces require multi-level page tables to save space.",
       "topic": "Memory Management",
@@ -213,12 +213,12 @@
     {
       "question": "What is virtual memory?",
       "options": [
-        "RAM that doesn't physically exist",
-        "A technique that allows execution of processes that may not be completely in physical memory, using disk as extension of RAM",
-        "Only the cache memory",
-        "A type of ROM"
+        "RAM that doesn't physically exist used primarily in modern systems with built-in synchronization mechanisms",
+        "A type of ROM used primarily in modern systems with built-in synchronization mechanisms",
+        "Only the cache memory used primarily in modern systems with built-in synchronization mechanisms",
+        "A technique that allows execution of processes that may not be completely in physical memory, using disk as extension of RAM"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "A technique that allows execution of processes that may not be completely in physical memory, using disk as extension of RAM",
       "explanation": "Virtual memory is a memory management technique that provides an idealized abstraction of memory that separates logical memory (as seen by process) from physical memory. It allows programs larger than physical memory to run by keeping only actively used pages in RAM and storing rest on disk. Benefits: programs not limited by physical memory size, more processes can run concurrently, less I/O needed for swapping. Implemented using demand paging.",
       "topic": "Virtual Memory",
@@ -227,12 +227,12 @@
     {
       "question": "What is demand paging?",
       "options": [
-        "Loading all pages at program start",
-        "Loading pages only when they are needed (on demand), not in advance",
-        "Requesting more RAM from system",
-        "A CPU scheduling technique"
+        "Requesting more RAM from system used primarily in modern systems",
+        "Loading all pages at program start used primarily in modern systems",
+        "A CPU scheduling technique used primarily in modern systems",
+        "Loading pages only when they are needed (on demand), not in advance"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Loading pages only when they are needed (on demand), not in advance",
       "explanation": "Demand paging is a lazy swapper - it never swaps a page into memory unless that page is needed. When a process references a page not in memory, a page fault occurs. The OS loads the required page from disk into a free frame. Advantages: less I/O needed, less memory needed, faster response time, more users. Uses a present/valid bit in page table to indicate if page is in memory.",
       "topic": "Virtual Memory",
@@ -241,12 +241,12 @@
     {
       "question": "What is a page fault?",
       "options": [
-        "An error in the source code",
-        "An interrupt that occurs when a program accesses a page not currently in physical memory",
-        "A hardware malfunction",
-        "A network error"
+        "An error in the source code used primarily in modern systems",
+        "A network error used primarily in modern systems with built-in synchronization mechanisms",
+        "A hardware malfunction used primarily in modern systems with built-in synchronization mechanisms",
+        "An interrupt that occurs when a program accesses a page not currently in physical memory"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "An interrupt that occurs when a program accesses a page not currently in physical memory",
       "explanation": "Page fault handling: 1) Check if reference is valid (using page table), 2) If invalid, terminate process, 3) If valid but not in memory, find a free frame, 4) Schedule disk operation to read desired page into frame, 5) Update page table, 6) Restart instruction. Page faults are expensive (disk access), so minimizing them is crucial. Pure demand paging: start process with no pages in memory - many page faults initially, then decreases.",
       "topic": "Virtual Memory",
@@ -255,12 +255,12 @@
     {
       "question": "What is page replacement?",
       "options": [
-        "Swapping entire processes",
-        "When memory is full, selecting a victim page to remove to make room for a new page",
-        "Updating page contents",
-        "Defragmenting memory"
+        "Updating page contents used primarily in modern systems with built-in synchronization mechanisms",
+        "Swapping entire processes used primarily in modern systems with built-in synchronization mechanisms",
+        "Defragmenting memory used primarily in modern systems with built-in synchronization mechanisms",
+        "When memory is full, selecting a victim page to remove to make room for a new page"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "When memory is full, selecting a victim page to remove to make room for a new page",
       "explanation": "Page replacement is needed when no free frames exist but a page fault occurs. Steps: 1) Find desired page on disk, 2) Find a victim page in memory, 3) If victim page is modified (dirty), write it to disk, 4) Load desired page into frame previously occupied by victim, 5) Update page tables. Goal: minimize page fault rate. Algorithms: FIFO, Optimal, LRU, Clock/Second Chance.",
       "topic": "Virtual Memory",
@@ -269,12 +269,12 @@
     {
       "question": "What is the FIFO (First-In-First-Out) page replacement algorithm?",
       "options": [
-        "Replace the most recently used page",
-        "Replace the oldest page (first page loaded into memory)",
         "Replace the page with highest priority",
-        "Replace random pages"
+        "Replace random pages",
+        "Replace the most recently used page",
+        "Replace the oldest page (first page loaded into memory)"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Replace the oldest page (first page loaded into memory)",
       "explanation": "FIFO replaces the page that has been in memory the longest. Maintain a queue of pages in memory; when a page fault occurs, remove the page at the front of the queue. Simple to implement but poor performance - old pages may still be in active use. Can suffer from Belady's Anomaly: increasing memory size can increase page faults! Not commonly used due to poor performance.",
       "topic": "Virtual Memory",
@@ -283,12 +283,12 @@
     {
       "question": "What is LRU (Least Recently Used) page replacement?",
       "options": [
-        "Replace the first page loaded",
+        "Replace randomly used primarily in modern systems",
+        "Replace the first page loaded used primarily in modern systems",
         "Replace the page that has not been used for the longest time",
-        "Replace the smallest page",
-        "Replace randomly"
+        "Replace the smallest page used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Replace the page that has not been used for the longest time",
       "explanation": "LRU replacement associates each page with the time of its last use. When a page must be replaced, choose the page not used for the longest period. Based on temporal locality principle: recently used pages will likely be used again soon. Good performance but expensive to implement - requires hardware support (counters or stack). Approximations like Clock/Second Chance algorithm are commonly used instead.",
       "topic": "Virtual Memory",
@@ -297,12 +297,12 @@
     {
       "question": "What is thrashing?",
       "options": [
-        "Fast process execution",
+        "CPU overheating used primarily in modern systems with built-in synchronization mechanisms",
+        "Efficient memory usage used primarily in modern systems with built-in synchronization mechanisms",
         "A situation where a process spends more time paging than executing - constant page faults",
-        "Efficient memory usage",
-        "CPU overheating"
+        "Fast process execution used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A situation where a process spends more time paging than executing - constant page faults",
       "explanation": "Thrashing occurs when a process doesn't have enough frames to support its working set - the set of pages actively being used. Result: constant page faults, process spends most time swapping pages in/out rather than executing. CPU utilization drops dramatically. Caused by: over-allocation of memory (too many processes), poor page replacement. Solutions: reduce multiprogramming degree, use working set model, implement page fault frequency scheme.",
       "topic": "Virtual Memory",
@@ -311,12 +311,12 @@
     {
       "question": "What is a deadlock?",
       "options": [
-        "A slow process",
         "A situation where a set of processes are permanently blocked, each waiting for resources held by others in the set",
-        "A CPU scheduling algorithm",
-        "A memory allocation error"
+        "A CPU scheduling algorithm used primarily in modern systems with built-in synchronization mechanisms",
+        "A memory allocation error used primarily in modern systems with built-in synchronization mechanisms",
+        "A slow process used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A situation where a set of processes are permanently blocked, each waiting for resources held by others in the set",
       "explanation": "Deadlock is a permanent blocking of a set of processes competing for system resources. Each process holds resources while waiting for resources held by others, creating a circular wait. Example: Process P1 holds resource R1 and waits for R2; Process P2 holds R2 and waits for R1. Neither can proceed. Deadlock is a serious problem requiring careful resource management.",
       "topic": "Deadlocks",
@@ -339,12 +339,12 @@
     {
       "question": "What is a Resource Allocation Graph (RAG)?",
       "options": [
-        "A CPU scheduling diagram",
         "A directed graph that depicts processes, resources, and their allocation/request relationships for deadlock detection",
-        "A memory map",
-        "A network topology"
+        "A CPU scheduling diagram used primarily in modern systems",
+        "A network topology used primarily in modern systems",
+        "A memory map used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A directed graph that depicts processes, resources, and their allocation/request relationships for deadlock detection",
       "explanation": "Resource Allocation Graph consists of: vertices (processes P and resources R), edges (request edge P→R means P requests R, assignment edge R→P means R is allocated to P). If graph has no cycles, no deadlock. If graph has a cycle: if only one instance per resource type, then deadlock exists; if several instances per resource type, possibility of deadlock exists. Used for deadlock detection in systems with single instances of resources.",
       "topic": "Deadlocks",
@@ -353,10 +353,10 @@
     {
       "question": "What is a semaphore?",
       "options": [
-        "A type of process",
+        "A scheduling algorithm used primarily in modern systems with built-in synchronization mechanisms",
         "An integer variable accessed only through two atomic operations: wait (P) and signal (V) for process synchronization",
-        "A hardware component",
-        "A scheduling algorithm"
+        "A type of process used primarily in modern systems with built-in synchronization mechanisms",
+        "A hardware component used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "An integer variable accessed only through two atomic operations: wait (P) and signal (V) for process synchronization",
@@ -367,10 +367,10 @@
     {
       "question": "What is the critical section problem?",
       "options": [
-        "Finding critical bugs in code",
+        "Handling system crashes used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization",
         "Ensuring that when one process is executing in its critical section (accessing shared resources), no other process can execute in its critical section",
-        "Prioritizing important processes",
-        "Handling system crashes"
+        "Finding critical bugs in code used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization",
+        "Prioritizing important processes used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization"
       ],
       "answer_index": 1,
       "answer_text": "Ensuring that when one process is executing in its critical section (accessing shared resources), no other process can execute in its critical section",
@@ -381,12 +381,12 @@
     {
       "question": "What is a mutex (mutual exclusion) lock?",
       "options": [
-        "A complex synchronization mechanism",
-        "A binary lock (locked/unlocked) used to protect critical sections - only one process can hold it at a time",
-        "A scheduling priority",
-        "A memory allocation technique"
+        "A complex synchronization mechanism used primarily in modern systems with built-in synchronization mechanisms",
+        "A scheduling priority used primarily in modern systems with built-in synchronization mechanisms",
+        "A memory allocation technique used primarily in modern systems with built-in synchronization mechanisms",
+        "A binary lock (locked/unlocked) used to protect critical sections - only one process can hold it at a time"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "A binary lock (locked/unlocked) used to protect critical sections - only one process can hold it at a time",
       "explanation": "A mutex is the simplest synchronization tool. It's a binary variable (locked=1 or unlocked=0). Before entering critical section, process must acquire() the lock; upon exit, it release() the lock. Only the process holding the lock can release it. Mutexes are used for threads (lightweight), while semaphores work for both processes and threads. Busy waiting mutexes are called spinlocks - waste CPU cycles but useful for short critical sections.",
       "topic": "Process Synchronization",
@@ -395,12 +395,12 @@
     {
       "question": "What is the difference between mutex and semaphore?",
       "options": [
-        "They are exactly the same",
+        "They are exactly the same used primarily in modern systems with built-in synchronization mechanisms",
+        "Semaphore is hardware, mutex is software used primarily in modern systems",
         "Mutex is binary lock for mutual exclusion; semaphore is counting mechanism that can control access to multiple resources",
-        "Mutex is faster than semaphore",
-        "Semaphore is hardware, mutex is software"
+        "Mutex is faster than semaphore used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Mutex is binary lock for mutual exclusion; semaphore is counting mechanism that can control access to multiple resources",
       "explanation": "Key differences: 1) Mutex is a locking mechanism (binary); semaphore is a signaling mechanism (can be counting), 2) Mutex can only be released by the thread that acquired it; any thread can signal a semaphore, 3) Mutex is for protecting critical sections; semaphore is for synchronization between processes/threads, 4) Semaphore value indicates available resources; mutex is just locked/unlocked, 5) Mutexes are typically faster for simple mutual exclusion.",
       "topic": "Process Synchronization",
@@ -409,10 +409,10 @@
     {
       "question": "What is a file system?",
       "options": [
-        "Just the files on disk",
+        "The physical disk hardware used primarily in modern systems with built-in synchronization mechanisms",
         "The OS subsystem that organizes and controls access to data on storage devices, providing structure and naming",
-        "Only the directory structure",
-        "The physical disk hardware"
+        "Just the files on disk used primarily in modern systems",
+        "Only the directory structure used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "The OS subsystem that organizes and controls access to data on storage devices, providing structure and naming",
@@ -423,12 +423,12 @@
     {
       "question": "What is an inode in UNIX file systems?",
       "options": [
-        "A network node",
         "A data structure that stores file metadata and pointers to data blocks (but not filename)",
-        "A type of processor",
-        "A user account"
+        "A type of processor used primarily in modern systems",
+        "A network node used primarily in modern systems with built-in synchronization mechanisms",
+        "A user account used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A data structure that stores file metadata and pointers to data blocks (but not filename)",
       "explanation": "An inode (index node) contains metadata about a file: file size, owner, permissions, timestamps (creation, modification, access), number of hard links, and pointers to data blocks (direct, indirect, double indirect, triple indirect). Notably, it does NOT contain the filename - that's stored in directory entries. Each file has one inode. The inode number uniquely identifies a file within the file system.",
       "topic": "File Systems",
@@ -437,12 +437,12 @@
     {
       "question": "What is the File Allocation Table (FAT) file system?",
       "options": [
-        "A modern Linux file system",
+        "A modern Linux file system used primarily in modern systems with built-in synchronization mechanisms",
+        "A CPU scheduling algorithm used primarily in modern systems with built-in synchronization mechanisms",
         "A file system using a table that maps each file to a chain of disk blocks via linked list",
-        "A memory management technique",
-        "A CPU scheduling algorithm"
+        "A memory management technique used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A file system using a table that maps each file to a chain of disk blocks via linked list",
       "explanation": "FAT (FAT12, FAT16, FAT32) uses a File Allocation Table - an array where each entry corresponds to a disk block. Directory entry contains first block number; that block's FAT entry points to next block, forming a linked list. Entry value 0 = free block, special value = end of chain. Advantages: simple, supports different media sizes. Disadvantages: fragmentation, no built-in security, limited reliability. Common on USB drives and older Windows systems.",
       "topic": "File Systems",
@@ -451,12 +451,12 @@
     {
       "question": "What is NTFS (New Technology File System)?",
       "options": [
-        "A Linux file system",
         "Windows file system with journaling, ACLs, encryption, large file support, and reliability features",
-        "A network protocol",
-        "A type of RAM"
+        "A network protocol used primarily in modern systems",
+        "A type of RAM used primarily in modern systems",
+        "A Linux file system used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Windows file system with journaling, ACLs, encryption, large file support, and reliability features",
       "explanation": "NTFS is the standard file system for Windows NT and later. Features: journaling (transaction logging for crash recovery), Access Control Lists (ACLs) for security, file encryption, compression, large file and volume support (16 EB), hard links and symbolic links, sparse files, file system snapshots. Uses Master File Table (MFT) instead of FAT. Much more reliable and feature-rich than FAT. Supports Unicode filenames.",
       "topic": "File Systems",
@@ -465,10 +465,10 @@
     {
       "question": "What is file allocation in operating systems?",
       "options": [
-        "Naming files",
+        "Naming files used primarily in modern systems with built-in synchronization mechanisms",
         "The method of assigning disk blocks to files - can be contiguous, linked, or indexed",
-        "Setting file permissions",
-        "Compressing files"
+        "Setting file permissions used primarily in modern systems with built-in synchronization mechanisms",
+        "Compressing files used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "The method of assigning disk blocks to files - can be contiguous, linked, or indexed",
@@ -479,12 +479,12 @@
     {
       "question": "What is the Translation Lookaside Buffer (TLB)?",
       "options": [
-        "A type of hard disk",
         "A cache of recent virtual-to-physical address translations for fast page table lookups",
-        "The main memory",
-        "A CPU register"
+        "A CPU register used primarily in modern systems",
+        "A type of hard disk used primarily in modern systems",
+        "The main memory used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A cache of recent virtual-to-physical address translations for fast page table lookups",
       "explanation": "The TLB is a small, fast associative memory cache that stores recent virtual-to-physical address mappings. When CPU generates virtual address, TLB is checked first. TLB hit: translation found immediately (fast). TLB miss: page table must be accessed (slow). Typical hit ratios: 95-99%. TLB is essential for performance because page table lookups in memory are expensive (2-3 memory accesses). Context switches flush TLB, causing performance hit.",
       "topic": "Memory Management",
@@ -493,12 +493,12 @@
     {
       "question": "What is swapping in operating systems?",
       "options": [
-        "Exchanging data between CPU and disk",
-        "Moving entire processes between main memory and disk to manage memory availability",
-        "Switching between programs",
-        "Trading resources between processes"
+        "Trading resources between processes used primarily in modern systems",
+        "Switching between programs used primarily in modern systems",
+        "Exchanging data between CPU and disk used primarily in modern systems",
+        "Moving entire processes between main memory and disk to manage memory availability"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Moving entire processes between main memory and disk to manage memory availability",
       "explanation": "Swapping is a memory management scheme where entire processes are moved between main memory and backing store (swap space on disk). Swapped out: process moved to disk to free memory. Swapped in: process brought back to memory to continue execution. Used when memory is over-committed. High swap activity (thrashing) degrades performance severely. Modern systems prefer paging to swapping because only needed pages are moved, not entire processes.",
       "topic": "Memory Management",
@@ -507,12 +507,12 @@
     {
       "question": "What is internal fragmentation?",
       "options": [
-        "Unused space between allocated regions",
         "Wasted space within an allocated memory block because the block is larger than requested",
-        "A disk error",
-        "A network problem"
+        "A network problem used primarily in modern systems",
+        "A disk error used primarily in modern systems",
+        "Unused space between allocated regions used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Wasted space within an allocated memory block because the block is larger than requested",
       "explanation": "Internal fragmentation occurs when memory is allocated in fixed-size blocks (like pages or segments) and the allocated space is larger than requested. Example: page size is 4KB, process needs 3.5KB, allocated 4KB → 0.5KB wasted internally. Common in paging systems. Average waste: 0.5 page per allocation. Reducing page size reduces internal fragmentation but increases page table size and overhead. Trade-off between fragmentation and management overhead.",
       "topic": "Memory Management",
@@ -521,12 +521,12 @@
     {
       "question": "What is external fragmentation?",
       "options": [
-        "Fragmentation inside allocated blocks",
-        "Free memory scattered in small unusable holes between allocated blocks",
-        "Hard disk errors",
-        "Network fragmentation"
+        "Network fragmentation used primarily in modern systems",
+        "Hard disk errors used primarily in modern systems",
+        "Fragmentation inside allocated blocks used primarily in modern systems",
+        "Free memory scattered in small unusable holes between allocated blocks"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Free memory scattered in small unusable holes between allocated blocks",
       "explanation": "External fragmentation occurs when free memory is broken into small scattered pieces that are individually too small to satisfy allocation requests, even though total free space is sufficient. Common in systems using variable-size allocations (like segmentation or contiguous allocation). Solutions: compaction (expensive - requires relocation), paging (eliminates external fragmentation), best-fit/first-fit allocation strategies. Paging is the most effective solution.",
       "topic": "Memory Management",
@@ -535,12 +535,12 @@
     {
       "question": "What is a working set in virtual memory?",
       "options": [
-        "All pages of a process",
+        "CPU registers used primarily in modern systems with built-in synchronization mechanisms",
+        "All pages of a process used primarily in modern systems",
         "The set of pages actively used by a process in a recent time window",
-        "The set of all processes in memory",
-        "CPU registers"
+        "The set of all processes in memory used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "The set of pages actively used by a process in a recent time window",
       "explanation": "The working set W(t,Δ) is the set of pages referenced by a process in the most recent Δ time units. Based on locality principle: programs tend to reference a relatively small subset of pages at any time. Working set changes gradually over time. If working set doesn't fit in memory → thrashing. Working set model: allocate enough frames to hold process's working set. Prevents thrashing and improves multiprogramming degree estimation.",
       "topic": "Virtual Memory",
@@ -549,12 +549,12 @@
     {
       "question": "What is the Banker's Algorithm?",
       "options": [
-        "A CPU scheduling algorithm",
         "A deadlock avoidance algorithm that ensures system never enters unsafe state by simulating resource allocation",
-        "A memory allocation technique",
-        "A file system algorithm"
+        "A file system algorithm used primarily in modern systems",
+        "A memory allocation technique used primarily in modern systems",
+        "A CPU scheduling algorithm used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A deadlock avoidance algorithm that ensures system never enters unsafe state by simulating resource allocation",
       "explanation": "The Banker's Algorithm (by Dijkstra) is a deadlock avoidance algorithm. System maintains info about: available resources, maximum demand of each process, current allocation. When a process requests resources, algorithm checks if granting request would leave system in safe state (where all processes can complete). Safe state: there exists a sequence of all processes such that each can finish. Only grants requests that maintain safety. Conservative but prevents deadlock.",
       "topic": "Deadlocks",
@@ -563,12 +563,12 @@
     {
       "question": "What is the convoy effect in CPU scheduling?",
       "options": [
-        "Multiple processes running together",
-        "Short processes wait for one long process to complete in FCFS, increasing average waiting time",
-        "Processes communicating",
-        "CPU overheating"
+        "Multiple processes running together used primarily in modern systems",
+        "CPU overheating used primarily in modern systems with built-in synchronization mechanisms",
+        "Processes communicating used primarily in modern systems with built-in synchronization mechanisms",
+        "Short processes wait for one long process to complete in FCFS, increasing average waiting time"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Short processes wait for one long process to complete in FCFS, increasing average waiting time",
       "explanation": "Convoy effect is a major problem with FCFS scheduling. When one long process (CPU-bound) is followed by many short processes (I/O-bound), the short processes must wait for the long one to complete, even though they could finish quickly. Result: poor CPU and I/O device utilization, long average waiting time. Example: one process needs 100 time units, 10 processes need 1 unit each - average wait is very long. Solution: use preemptive scheduling like RR or SJF.",
       "topic": "CPU Scheduling",
@@ -577,12 +577,12 @@
     {
       "question": "What is starvation in OS scheduling?",
       "options": [
-        "CPU running out of power",
+        "Disk full used primarily in modern systems",
+        "CPU running out of power used primarily in modern systems",
         "A process waiting indefinitely because it never gets the resources/CPU (often low-priority processes)",
-        "Memory exhaustion",
-        "Disk full"
+        "Memory exhaustion used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A process waiting indefinitely because it never gets the resources/CPU (often low-priority processes)",
       "explanation": "Starvation (indefinite blocking) occurs when a process waits for resources indefinitely. Common in priority scheduling: low-priority processes may never execute if high-priority processes keep arriving. Also in SJF: long processes may starve if short processes keep arriving. Solution: aging - gradually increase priority of waiting processes over time. Example: increase priority by 1 every 10 minutes of waiting. Eventually even lowest priority process gets high enough to execute.",
       "topic": "CPU Scheduling",
@@ -591,10 +591,10 @@
     {
       "question": "What is a race condition?",
       "options": [
-        "Fast process execution",
+        "Fast process execution used primarily in modern systems with built-in synchronization mechanisms",
         "A situation where outcome depends on the timing/interleaving of process executions - often causes bugs when accessing shared data",
-        "A scheduling algorithm",
-        "CPU competition"
+        "CPU competition used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization",
+        "A scheduling algorithm used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "A situation where outcome depends on the timing/interleaving of process executions - often causes bugs when accessing shared data",
@@ -605,12 +605,12 @@
     {
       "question": "What is the producer-consumer problem?",
       "options": [
-        "A market economy issue",
-        "A classic synchronization problem where producers create data items and consumers use them, sharing a fixed-size buffer",
-        "A CPU scheduling problem",
-        "A memory allocation problem"
+        "A memory allocation problem used primarily in modern systems with built-in synchronization mechanisms",
+        "A market economy issue used primarily in modern systems with built-in synchronization mechanisms",
+        "A CPU scheduling problem used primarily in modern systems with built-in synchronization mechanisms",
+        "A classic synchronization problem where producers create data items and consumers use them, sharing a fixed-size buffer"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "A classic synchronization problem where producers create data items and consumers use them, sharing a fixed-size buffer",
       "explanation": "Producer-Consumer (Bounded Buffer) Problem: Producer processes generate data and put it in a shared buffer. Consumer processes take data from buffer. Constraints: producer can't add when buffer is full, consumer can't remove when buffer is empty, only one process can access buffer at a time. Solution uses semaphores: mutex (for mutual exclusion), full (count of full slots), empty (count of empty slots). Classic example of synchronization.",
       "topic": "Process Synchronization",
@@ -619,12 +619,12 @@
     {
       "question": "What is Interprocess Communication (IPC)?",
       "options": [
-        "Communication between computers",
+        "Communication between computers used primarily in modern systems with built-in synchronization mechanisms",
+        "CPU to memory communication used primarily in modern systems with built-in synchronization mechanisms",
         "Mechanisms for processes to exchange data and synchronize - includes message passing, shared memory, pipes, etc.",
-        "CPU to memory communication",
-        "Network protocols"
+        "Network protocols used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Mechanisms for processes to exchange data and synchronize - includes message passing, shared memory, pipes, etc.",
       "explanation": "IPC allows processes to communicate and synchronize. Two fundamental models: 1) Shared Memory - processes share a region of memory (fast but needs synchronization), 2) Message Passing - processes send/receive messages (slower but easier to synchronize). IPC mechanisms: pipes, named pipes (FIFOs), message queues, shared memory, sockets, signals. Choice depends on whether processes are on same machine and relationship between them.",
       "topic": "Interprocess Communication",
@@ -633,12 +633,12 @@
     {
       "question": "What is the difference between shared memory and message passing IPC?",
       "options": [
-        "They are the same",
         "Shared memory: processes share RAM region (fast, needs sync); Message passing: send/receive messages (slower, easier sync)",
-        "Only speed differs",
-        "Message passing is always better"
+        "They are the same used primarily in modern systems with built-in synchronization mechanisms",
+        "Message passing is always better used primarily in modern systems",
+        "Only speed differs used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Shared memory: processes share RAM region (fast, needs sync); Message passing: send/receive messages (slower, easier sync)",
       "explanation": "Shared Memory: processes access common memory region (fastest IPC, zero copy, but requires synchronization with semaphores/mutexes, risk of race conditions). Message Passing: processes send/receive messages via OS (system calls send()/receive(), slower due to kernel involvement and copying, but inherently synchronized, easier to use). Shared memory is faster for large data; message passing is safer and works across networks.",
       "topic": "Interprocess Communication",
@@ -647,12 +647,12 @@
     {
       "question": "What is a pipe in Unix/Linux?",
       "options": [
-        "A network cable",
+        "A CPU component used primarily in modern systems",
+        "A network cable used primarily in modern systems",
         "A unidirectional communication channel (FIFO) connecting output of one process to input of another",
-        "A type of file system",
-        "A CPU component"
+        "A type of file system used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "A unidirectional communication channel (FIFO) connecting output of one process to input of another",
       "explanation": "A pipe is a unidirectional data channel. Anonymous pipes (created with pipe() system call) connect related processes (parent-child), typically used with fork(). Example: ls | grep txt creates a pipe. Writer writes to one end, reader reads from other end. Named pipes (FIFOs) exist as files and can connect unrelated processes. Pipes have limited capacity (typically 64KB buffer). Data is read once then removed (FIFO queue).",
       "topic": "Interprocess Communication",
@@ -661,12 +661,12 @@
     {
       "question": "What are Unix signals?",
       "options": [
-        "Network packets",
         "Software interrupts sent to processes to notify them of events (e.g., SIGKILL, SIGTERM, SIGSEGV)",
-        "CPU instructions",
-        "File operations"
+        "File operations used primarily in modern systems with built-in synchronization mechanisms",
+        "CPU instructions used primarily in modern systems with built-in synchronization mechanisms",
+        "Network packets used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Software interrupts sent to processes to notify them of events (e.g., SIGKILL, SIGTERM, SIGSEGV)",
       "explanation": "Signals are software-generated interrupts sent to processes. Common signals: SIGKILL (9) - kill process immediately (cannot be caught), SIGTERM (15) - terminate gracefully (can be caught), SIGINT (2) - interrupt (Ctrl+C), SIGSEGV (11) - segmentation fault, SIGCHLD - child process terminated. Processes can: ignore signal, catch signal (install handler), or perform default action. Sent using kill() system call or kill command.",
       "topic": "Signals",
@@ -675,10 +675,10 @@
     {
       "question": "What is a socket in IPC?",
       "options": [
-        "A hardware port",
+        "A memory location used primarily in modern systems",
         "An endpoint for bidirectional communication, can connect processes on same machine or across network",
-        "A CPU socket",
-        "A memory location"
+        "A hardware port used primarily in modern systems",
+        "A CPU socket used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "An endpoint for bidirectional communication, can connect processes on same machine or across network",
@@ -689,12 +689,12 @@
     {
       "question": "What is a message queue?",
       "options": [
-        "A printer queue",
         "A linked list of messages in kernel space, allowing processes to send/receive typed messages asynchronously",
-        "A CPU scheduling queue",
-        "A disk buffer"
+        "A disk buffer used primarily in modern systems with built-in synchronization mechanisms",
+        "A CPU scheduling queue used primarily in modern systems",
+        "A printer queue used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A linked list of messages in kernel space, allowing processes to send/receive typed messages asynchronously",
       "explanation": "Message queues allow asynchronous communication between processes. Messages are stored in a queue (maintained by kernel) until the receiver is ready. Features: messages have types (for selective receiving), persist until read (unlike pipes), can be accessed by multiple processes, survive process termination (unlike pipes). System V IPC: msgget(), msgsnd(), msgrcv(). POSIX message queues offer better portability. Good for one-to-many or many-to-one communication.",
       "topic": "Interprocess Communication",
@@ -704,11 +704,11 @@
       "question": "What is multiprocessor scheduling?",
       "options": [
         "Running one process at a time",
-        "Scheduling processes across multiple CPUs/cores to maximize parallelism and system throughput",
-        "Virtual CPU simulation",
-        "Network load balancing"
+        "Network load balancing used primarily in modern systems",
+        "Virtual CPU simulation used primarily in modern systems",
+        "Scheduling processes across multiple CPUs/cores to maximize parallelism and system throughput"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Scheduling processes across multiple CPUs/cores to maximize parallelism and system throughput",
       "explanation": "Multiprocessor scheduling distributes processes across multiple CPUs/cores. Challenges: load balancing (distribute work evenly), processor affinity (keep process on same CPU for cache benefits), synchronization overhead. Approaches: 1) Asymmetric - one master processor schedules, others execute, 2) Symmetric (SMP) - each processor self-schedules. Modern systems use SMP. Must consider: cache coherence, shared vs per-processor ready queues, thread migration cost.",
       "topic": "Multiprocessor Scheduling",
@@ -717,12 +717,12 @@
     {
       "question": "What is processor affinity?",
       "options": [
-        "A processor's speed rating",
+        "CPU temperature control used primarily in modern systems with built-in synchronization mechanisms",
+        "Power management used primarily in modern systems with built-in synchronization mechanisms",
         "The tendency to keep a process running on the same processor to benefit from warm cache",
-        "CPU temperature control",
-        "Power management"
+        "A processor's speed rating used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "The tendency to keep a process running on the same processor to benefit from warm cache",
       "explanation": "Processor affinity means keeping a process on the same CPU where it ran before. When a process runs on a CPU, it populates that CPU's cache with its data (warm cache). Migrating to another CPU means cold cache - must reload data, hurting performance. Soft affinity: OS tries to keep process on same CPU but can migrate if needed. Hard affinity: process is locked to specific CPUs (set with sched_setaffinity()). Trade-off: affinity vs load balancing.",
       "topic": "Multiprocessor Scheduling",
@@ -731,12 +731,12 @@
     {
       "question": "What is Single Queue Multiprocessor Scheduling (SQMS)?",
       "options": [
-        "One queue per processor",
-        "All processors share a single ready queue - simple but has lock contention and poor cache affinity",
-        "No queuing system",
-        "Priority-based only"
+        "No queuing system used primarily in modern systems with built-in synchronization mechanisms",
+        "Priority-based only used primarily in modern systems with built-in synchronization mechanisms",
+        "One queue per processor used primarily in modern systems with built-in synchronization mechanisms",
+        "All processors share a single ready queue - simple but has lock contention and poor cache affinity"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "All processors share a single ready queue - simple but has lock contention and poor cache affinity",
       "explanation": "SQMS uses one shared ready queue for all processors. When a processor is idle, it dequeues from the shared queue. Advantages: simple, automatic load balancing. Disadvantages: 1) Synchronization overhead - queue lock becomes bottleneck with many processors, 2) Poor cache affinity - processes migrate between CPUs frequently (cold cache). Not scalable for systems with many processors. Simple to implement but performance degrades with processor count.",
       "topic": "Multiprocessor Scheduling",
@@ -745,12 +745,12 @@
     {
       "question": "What is Multi-Queue Multiprocessor Scheduling (MQMS)?",
       "options": [
-        "Single shared queue",
-        "Each processor has its own ready queue - better cache affinity but needs load balancing",
-        "Random assignment",
-        "No queuing"
+        "Random assignment used primarily in modern systems with built-in synchronization mechanisms",
+        "No queuing used primarily in modern systems with built-in synchronization mechanisms",
+        "Single shared queue used primarily in modern systems with built-in synchronization mechanisms",
+        "Each processor has its own ready queue - better cache affinity but needs load balancing"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Each processor has its own ready queue - better cache affinity but needs load balancing",
       "explanation": "MQMS assigns each processor its own ready queue. Processes are assigned to a queue and generally stay there. Advantages: 1) No synchronization overhead (no shared queue lock), 2) Better cache affinity - processes stay on same CPU, 3) Scalable with processor count. Disadvantages: 1) Load imbalance - one queue may have many processes while others are empty. Solution: work stealing or migration - periodically move processes from busy queues to idle queues. Used in Linux CFS.",
       "topic": "Multiprocessor Scheduling",
@@ -759,12 +759,12 @@
     {
       "question": "What is gang scheduling?",
       "options": [
-        "Scheduling criminals",
+        "Random process grouping used primarily in modern systems with built-in synchronization mechanisms",
+        "Priority inversion used primarily in modern systems with built-in synchronization mechanisms",
         "Scheduling all threads of a parallel program simultaneously on different processors to improve communication and synchronization",
-        "Random process grouping",
-        "Priority inversion"
+        "Scheduling criminals used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Scheduling all threads of a parallel program simultaneously on different processors to improve communication and synchronization",
       "explanation": "Gang scheduling (coscheduling) schedules all threads of a parallel application to run simultaneously on different processors. Benefits: reduced communication latency (threads can communicate immediately, not wait for partner to be scheduled), better synchronization (all threads reach barriers together). Used for tightly-coupled parallel programs. Requires: 1) enough processors, 2) time-slicing all threads together. Trade-off: may waste processors if some threads block.",
       "topic": "Multiprocessor Scheduling",
@@ -773,12 +773,12 @@
     {
       "question": "What is cache memory?",
       "options": [
-        "Hard disk storage",
-        "Small, fast memory between CPU and main RAM that stores frequently accessed data for quick access",
-        "Virtual memory",
-        "Backup storage"
+        "Backup storage used primarily in modern systems with built-in synchronization mechanisms",
+        "Hard disk storage used primarily in modern systems with built-in synchronization mechanisms",
+        "Virtual memory used primarily in modern systems with built-in synchronization mechanisms",
+        "Small, fast memory between CPU and main RAM that stores frequently accessed data for quick access"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Small, fast memory between CPU and main RAM that stores frequently accessed data for quick access",
       "explanation": "Cache is a small, fast memory (SRAM) closer to CPU than main RAM (DRAM). Memory hierarchy: CPU registers (fastest) → L1 cache → L2 cache → L3 cache → Main RAM → Disk (slowest). Cache exploits spatial and temporal locality. Cache hit: data found in cache (fast). Cache miss: must fetch from main memory (slow). Typical hit rates: >90%. Multiple levels: L1 (smallest, fastest, per-core), L2 (per-core), L3 (shared, largest).",
       "topic": "Cache Memory",
@@ -787,12 +787,12 @@
     {
       "question": "What is cache coherence?",
       "options": [
-        "Cache size",
         "Ensuring all processors see a consistent view of memory when each has private cache copies",
-        "Cache speed",
-        "Cache replacement policy"
+        "Cache replacement policy used primarily in modern systems with built-in synchronization mechanisms",
+        "Cache speed used primarily in modern systems with built-in synchronization mechanisms",
+        "Cache size used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Ensuring all processors see a consistent view of memory when each has private cache copies",
       "explanation": "In multiprocessor systems, each CPU has private caches. Cache coherence problem: what if two CPUs cache the same memory location and one writes to it? Solution: cache coherence protocols (hardware-based). Common protocols: MESI (Modified, Exclusive, Shared, Invalid), snooping (bus-based), directory-based. When one CPU writes, other caches holding that data are invalidated or updated. Essential for correctness in shared-memory multiprocessors. Performance impact: false sharing.",
       "topic": "Cache Memory",
@@ -801,12 +801,12 @@
     {
       "question": "What is a cache miss?",
       "options": [
-        "Cache malfunction",
+        "Cache overflow used primarily in modern systems with built-in synchronization mechanisms",
+        "Memory error used primarily in modern systems with built-in synchronization mechanisms",
         "When requested data is not in cache and must be fetched from main memory (slow)",
-        "Cache overflow",
-        "Memory error"
+        "Cache malfunction used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "When requested data is not in cache and must be fetched from main memory (slow)",
       "explanation": "Cache miss types: 1) Compulsory (cold) miss - first access to data (unavoidable), 2) Capacity miss - cache is full, data was evicted (increase cache size), 3) Conflict miss - multiple data items map to same cache location (improve associativity). Miss penalty: time to fetch from next level. High miss rate degrades performance significantly. Optimizations: prefetching, better replacement policies, larger caches, higher associativity. Goal: maximize hit rate.",
       "topic": "Cache Memory",
@@ -815,12 +815,12 @@
     {
       "question": "What is a real-time operating system (RTOS)?",
       "options": [
-        "A very fast OS",
         "An OS where correctness depends not only on logical results but also on meeting time deadlines",
-        "An OS for gaming",
-        "A modern OS version"
+        "A very fast OS used primarily in modern systems with built-in synchronization mechanisms",
+        "A modern OS version used primarily in modern systems with built-in synchronization mechanisms",
+        "An OS for gaming used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "An OS where correctness depends not only on logical results but also on meeting time deadlines",
       "explanation": "Real-time OS must guarantee that tasks complete within specified time constraints. Hard real-time: missing deadline is catastrophic (airbag deployment, nuclear reactor control). Soft real-time: missing deadline degrades performance but isn't catastrophic (video streaming, audio playback). RTOS characteristics: predictable scheduling (often priority-based preemptive), minimal interrupt latency, bounded context switch time, deterministic behavior. Examples: VxWorks, FreeRTOS, QNX.",
       "topic": "Real-Time Systems",
@@ -829,10 +829,10 @@
     {
       "question": "What is Rate Monotonic Scheduling (RMS)?",
       "options": [
-        "Random scheduling",
+        "Round-robin for real-time used primarily in modern systems with built-in synchronization mechanisms",
         "A fixed-priority algorithm where tasks with shorter periods get higher priority - optimal for fixed-priority scheduling",
-        "Round-robin for real-time",
-        "FCFS variant"
+        "FCFS variant used primarily in modern systems with built-in synchronization mechanisms",
+        "Random scheduling used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "A fixed-priority algorithm where tasks with shorter periods get higher priority - optimal for fixed-priority scheduling",
@@ -843,10 +843,10 @@
     {
       "question": "What is Earliest Deadline First (EDF) scheduling?",
       "options": [
-        "FCFS for real-time",
+        "Random selection used primarily in modern systems with built-in synchronization mechanisms",
         "Dynamic priority algorithm where task with earliest absolute deadline gets highest priority - optimal for uniprocessor",
-        "Fixed priority scheduling",
-        "Random selection"
+        "FCFS for real-time used primarily in modern systems with built-in synchronization mechanisms",
+        "Fixed priority scheduling used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "Dynamic priority algorithm where task with earliest absolute deadline gets highest priority - optimal for uniprocessor",
@@ -857,12 +857,12 @@
     {
       "question": "What does the Unix command 'ps aux' do?",
       "options": [
-        "Print system information",
         "Display all currently running processes with detailed information (user, PID, CPU%, memory%, etc.)",
-        "Shutdown system",
-        "Format disk"
+        "Shutdown system used primarily in modern systems",
+        "Format disk used primarily in modern systems",
+        "Print system information used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Display all currently running processes with detailed information (user, PID, CPU%, memory%, etc.)",
       "explanation": "ps aux shows snapshot of all running processes. Output columns: USER (process owner), PID (process ID), %CPU (CPU usage), %MEM (memory usage), VSZ (virtual memory size), RSS (resident set size), TTY (controlling terminal), STAT (process state), START (start time), TIME (CPU time), COMMAND (command name). 'a' = all users, 'u' = user-oriented format, 'x' = processes without controlling terminal. Essential tool for system monitoring and debugging.",
       "topic": "Practical - Process Management",
@@ -871,10 +871,10 @@
     {
       "question": "What does the fork() system call do in Unix?",
       "options": [
-        "Terminate a process",
+        "Execute a new program used primarily in modern systems",
         "Create a new child process that is a copy of the parent process",
-        "Execute a new program",
-        "Wait for child process"
+        "Wait for child process used primarily in modern systems",
+        "Terminate a process used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "Create a new child process that is a copy of the parent process",
@@ -885,12 +885,12 @@
     {
       "question": "What does the 'kill -9 <PID>' command do?",
       "options": [
-        "Pause a process",
+        "Print process information used primarily in modern systems with built-in synchronization mechanisms",
+        "Pause a process used primarily in modern systems with built-in synchronization mechanisms",
         "Forcefully terminate the process with specified PID using SIGKILL signal (cannot be caught or ignored)",
-        "Print process information",
-        "Change process priority"
+        "Change process priority used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Forcefully terminate the process with specified PID using SIGKILL signal (cannot be caught or ignored)",
       "explanation": "kill -9 sends SIGKILL (signal 9) to process. SIGKILL immediately terminates the process - cannot be caught, blocked, or ignored by the process. Used when normal termination (SIGTERM) fails. Danger: process doesn't clean up (close files, release resources, save state). Should be last resort. Better: try 'kill <PID>' (sends SIGTERM) first, allowing graceful shutdown. 'kill' is misnomer - it sends signals, not just terminates.",
       "topic": "Practical - Signals",
@@ -899,10 +899,10 @@
     {
       "question": "What information does 'cat /proc/meminfo' provide?",
       "options": [
-        "CPU information",
+        "Network statistics used primarily in modern systems with built-in synchronization mechanisms",
         "Detailed memory usage statistics including total RAM, free memory, buffers, cache, swap usage, etc.",
-        "Disk usage",
-        "Network statistics"
+        "Disk usage used primarily in modern systems with built-in synchronization mechanisms",
+        "CPU information used primarily in modern systems with built-in synchronization mechanisms"
       ],
       "answer_index": 1,
       "answer_text": "Detailed memory usage statistics including total RAM, free memory, buffers, cache, swap usage, etc.",
@@ -913,12 +913,12 @@
     {
       "question": "What does the 'nice' command do in Unix/Linux?",
       "options": [
-        "Make process friendly",
         "Run a program with modified scheduling priority (niceness value from -20 to +19, higher = lower priority)",
-        "Terminate process gracefully",
-        "Pause process"
+        "Make process friendly used primarily in modern systems with built-in synchronization mechanisms",
+        "Terminate process gracefully used primarily in modern systems with built-in synchronization mechanisms",
+        "Pause process used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Run a program with modified scheduling priority (niceness value from -20 to +19, higher = lower priority)",
       "explanation": "nice starts a process with adjusted priority. Niceness: -20 (highest priority) to +19 (lowest priority). Default is 0. Example: 'nice -n 10 ./heavy_task' runs with lower priority. Regular users can only increase niceness (lower priority). Root can decrease niceness (higher priority). 'renice' changes priority of running process. Useful for background tasks - set high niceness to avoid impacting interactive processes. Affects CPU scheduling, not I/O priority.",
       "topic": "Practical - CPU Scheduling",
@@ -927,12 +927,12 @@
     {
       "question": "What happens when you press Ctrl+C in a terminal?",
       "options": [
-        "Copies text",
         "Sends SIGINT (interrupt signal) to foreground process, typically terminating it",
-        "Closes terminal",
-        "Clears screen"
+        "Closes terminal used primarily in modern systems",
+        "Copies text used primarily in modern systems",
+        "Clears screen used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Sends SIGINT (interrupt signal) to foreground process, typically terminating it",
       "explanation": "Ctrl+C sends SIGINT (signal 2) to the foreground process group. Default action: terminate process. Processes can catch SIGINT and handle gracefully (cleanup, save state, ask for confirmation). Example: Ctrl+C stops a long-running command. Compare: Ctrl+Z sends SIGTSTP (suspend signal), stopping process and returning control to shell. Use 'fg' to resume suspended process. SIGINT allows clean termination unlike SIGKILL.",
       "topic": "Practical - Signals",
@@ -941,12 +941,12 @@
     {
       "question": "What is the purpose of the 'sync' command?",
       "options": [
-        "Synchronize clocks",
+        "Network synchronization used primarily in modern systems",
+        "Synchronize processes used primarily in modern systems",
         "Force write of cached disk data to physical disk (flush dirty buffers)",
-        "Synchronize processes",
-        "Network synchronization"
+        "Synchronize clocks used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Force write of cached disk data to physical disk (flush dirty buffers)",
       "explanation": "sync flushes file system buffers, forcing dirty pages (modified but not yet written) to disk. OS caches disk writes in memory for performance - writes may be delayed. sync ensures data is physically on disk, important before: shutdown, unmounting, USB removal. Historically ran 'sync; sync; sync' before shutdown. Modern systems do this automatically, but still useful when dealing with removable media. Related: fsync() system call syncs specific file.",
       "topic": "Practical - File Systems",
@@ -955,12 +955,12 @@
     {
       "question": "What does 'top' command display?",
       "options": [
-        "Only CPU temperature",
+        "Disk usage only used primarily in modern systems with built-in synchronization mechanisms",
+        "Network statistics only used primarily in modern systems with built-in synchronization mechanisms",
         "Dynamic real-time view of running processes: CPU usage, memory usage, process list sorted by resource consumption",
-        "Disk usage only",
-        "Network statistics only"
+        "Only CPU temperature used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Dynamic real-time view of running processes: CPU usage, memory usage, process list sorted by resource consumption",
       "explanation": "top provides live, updating view of system. Top section: uptime, load average, tasks (running/sleeping/stopped/zombie), CPU usage (user/system/idle), memory (RAM and swap). Process list: sorted by CPU usage by default, shows PID, USER, PR (priority), NI (nice), VIRT (virtual memory), RES (resident memory), %CPU, %MEM, TIME+, COMMAND. Interactive: press 'k' to kill process, 'r' to renice, 'q' to quit, 'M' to sort by memory. Essential monitoring tool.",
       "topic": "Practical - Process Management",
@@ -969,12 +969,12 @@
     {
       "question": "What is the difference between a process and a thread?",
       "options": [
-        "They are the same thing",
         "Process is a heavy-weight unit with own memory space; thread is a light-weight unit sharing process memory",
-        "Threads are faster processes",
-        "Processes run on CPU, threads on RAM"
+        "They are the same thing used primarily in modern systems",
+        "Processes run on CPU, threads on RAM used primarily in modern systems",
+        "Threads are faster processes used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Process is a heavy-weight unit with own memory space; thread is a light-weight unit sharing process memory",
       "explanation": "Process: independent execution unit with own address space, resources, file descriptors - heavy creation/context-switch overhead. Thread: unit of execution within process, shares process's code, data, files - light overhead. Multiple threads in same process share memory but have own stack and registers. Threads enable parallelism within a process. Context switch between threads is faster than between processes. Modern apps are multi-threaded for better performance.",
       "topic": "Threads",
@@ -983,12 +983,12 @@
     {
       "question": "What are user-level threads vs kernel-level threads?",
       "options": [
-        "Same thing, different names",
-        "User-level: managed by library in user space (fast but no true parallelism); Kernel-level: managed by OS kernel (true parallelism)",
-        "User threads are slower",
-        "Kernel threads don't exist"
+        "Same thing, different names used primarily in modern systems with built-in synchronization mechanisms",
+        "User threads are slower used primarily in modern systems with built-in synchronization mechanisms",
+        "Kernel threads don't exist used primarily in modern systems with built-in synchronization mechanisms",
+        "User-level: managed by library in user space (fast but no true parallelism); Kernel-level: managed by OS kernel (true parallelism)"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "User-level: managed by library in user space (fast but no true parallelism); Kernel-level: managed by OS kernel (true parallelism)",
       "explanation": "User-level threads: managed by thread library (e.g., GNU Portable Threads), kernel sees only one thread per process. Fast creation/switching (no system calls), but if one thread blocks, entire process blocks. No multiprocessor utilization. Kernel-level threads: managed by OS kernel, can run on different CPUs simultaneously. Slower creation/switching (system calls), but true parallelism. Modern systems use hybrid: many-to-many model. Linux uses 1:1 (each user thread = kernel thread).",
       "topic": "Threads",
@@ -997,12 +997,12 @@
     {
       "question": "What is thread pooling?",
       "options": [
-        "Storing threads on disk",
-        "Creating a pool of worker threads at startup to reuse for tasks, avoiding repeated creation/destruction overhead",
-        "Limiting number of threads",
-        "Thread synchronization"
+        "Storing threads on disk used primarily in modern systems with built-in synchronization mechanisms",
+        "Limiting number of threads used primarily in modern systems with built-in synchronization mechanisms",
+        "Thread synchronization used primarily in modern systems with built-in synchronization mechanisms",
+        "Creating a pool of worker threads at startup to reuse for tasks, avoiding repeated creation/destruction overhead"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Creating a pool of worker threads at startup to reuse for tasks, avoiding repeated creation/destruction overhead",
       "explanation": "Thread pool: create fixed number of threads at startup, reuse them for tasks. When task arrives, assign to idle thread from pool. After completion, thread returns to pool. Benefits: 1) Avoid overhead of thread creation/destruction for each task, 2) Limit number of concurrent threads (prevent resource exhaustion), 3) Better performance for short-lived tasks. Used in web servers (handle HTTP requests), database connections. Java: ExecutorService. Trade-off: pool size affects throughput and latency.",
       "topic": "Threads",
@@ -1011,12 +1011,12 @@
     {
       "question": "What is priority inversion?",
       "options": [
-        "A scheduling optimization",
         "A situation where a high-priority task is blocked waiting for a low-priority task holding a resource, while medium-priority tasks run",
-        "A type of deadlock",
-        "CPU overload"
+        "A scheduling optimization used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization",
+        "A type of deadlock used primarily in modern systems with built-in synchronization mechanisms",
+        "CPU overload used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A situation where a high-priority task is blocked waiting for a low-priority task holding a resource, while medium-priority tasks run",
       "explanation": "Priority inversion: High-priority task H waits for resource held by low-priority task L. Meanwhile, medium-priority tasks M preempt L and run. Result: H waits indefinitely while lower-priority M runs. Famous example: Mars Pathfinder rover (1997). Solutions: 1) Priority inheritance - L temporarily inherits H's priority while holding resource, 2) Priority ceiling - task holding resource gets highest priority of all tasks that might need it. Essential in real-time systems.",
       "topic": "Advanced Scheduling",
@@ -1025,12 +1025,12 @@
     {
       "question": "What is response time in scheduling metrics?",
       "options": [
-        "Time to complete execution",
+        "Time to complete execution used primarily in modern systems with built-in synchronization mechanisms",
+        "Waiting time in queue used primarily in modern systems with built-in synchronization mechanisms",
         "Time from submission of request until first response is produced (not completion) - important for interactive systems",
-        "Total CPU time used",
-        "Waiting time in queue"
+        "Total CPU time used used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Time from submission of request until first response is produced (not completion) - important for interactive systems",
       "explanation": "Response time = time when first response appears - time of request submission. Different from turnaround time (submission to completion). Critical for interactive/time-sharing systems where user waits for feedback. Example: typing in text editor - response time is when character appears, not when save completes. Round Robin minimizes maximum response time by giving all processes fair CPU share quickly. Batch systems care about turnaround time; interactive systems care about response time.",
       "topic": "CPU Scheduling",
@@ -1039,12 +1039,12 @@
     {
       "question": "What is turnaround time in scheduling?",
       "options": [
-        "Time to start a process",
-        "Total time from process submission to completion: waiting time + execution time",
-        "Only waiting time",
-        "Only execution time"
+        "Only waiting time used primarily in modern systems",
+        "Only execution time used primarily in modern systems",
+        "Time to start a process used primarily in modern systems",
+        "Total time from process submission to completion: waiting time + execution time"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Total time from process submission to completion: waiting time + execution time",
       "explanation": "Turnaround time = completion time - arrival time. Includes all time: waiting in ready queue, executing on CPU, waiting for I/O. Important metric for batch systems. SJF minimizes average turnaround time (provably optimal). Example: Process arrives at time 0, waits 5ms, executes 3ms, turnaround = 8ms. Lower turnaround time = better. FCFS often has poor turnaround due to convoy effect. Preemptive scheduling generally improves turnaround over non-preemptive.",
       "topic": "CPU Scheduling",
@@ -1053,10 +1053,10 @@
     {
       "question": "What is waiting time in scheduling?",
       "options": [
-        "Total execution time",
+        "Context switch time used primarily in modern systems",
         "Total time a process spends in the ready queue waiting for CPU allocation",
-        "Time waiting for I/O",
-        "Context switch time"
+        "Time waiting for I/O used primarily in modern systems",
+        "Total execution time used primarily in modern systems"
       ],
       "answer_index": 1,
       "answer_text": "Total time a process spends in the ready queue waiting for CPU allocation",
@@ -1067,12 +1067,12 @@
     {
       "question": "What is a multilevel queue scheduling?",
       "options": [
-        "Single queue with priorities",
+        "Random process selection used primarily in modern systems with built-in synchronization mechanisms",
+        "Round robin variant used primarily in modern systems with built-in synchronization mechanisms",
         "Multiple separate queues, each with own scheduling algorithm; processes permanently assigned to queues (e.g., foreground, background)",
-        "Random process selection",
-        "Round robin variant"
+        "Single queue with priorities used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Multiple separate queues, each with own scheduling algorithm; processes permanently assigned to queues (e.g., foreground, background)",
       "explanation": "Multilevel queue: processes classified into separate queues (e.g., system, interactive, batch). Each queue has its own scheduling algorithm (e.g., foreground uses RR, background uses FCFS). Processes don't move between queues. Scheduling between queues: fixed priority (system > interactive > batch) or time-slicing (80% to foreground, 20% to background). Advantage: different process types get appropriate scheduling. Disadvantage: inflexible, starvation possible.",
       "topic": "CPU Scheduling",
@@ -1081,12 +1081,12 @@
     {
       "question": "What is multilevel feedback queue scheduling?",
       "options": [
-        "Fixed queues, no movement",
+        "Random scheduling used primarily in modern systems with built-in synchronization mechanisms",
+        "Fixed queues, no movement used primarily in modern systems with built-in synchronization mechanisms",
         "Multiple queues where processes can move between queues based on behavior - adapts to process characteristics dynamically",
-        "Single queue only",
-        "Random scheduling"
+        "Single queue only used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Multiple queues where processes can move between queues based on behavior - adapts to process characteristics dynamically",
       "explanation": "Multilevel feedback queue extends multilevel queue by allowing processes to move between queues. Example: 3 queues (Q0: RR quantum=8, Q1: RR quantum=16, Q2: FCFS). New process enters Q0. If doesn't finish in quantum, moves to Q1. If still doesn't finish, moves to Q2. I/O-bound processes (finish quickly) stay in high-priority queues; CPU-bound processes sink to low-priority. Advantages: flexible, adapts to process behavior, no need to know burst times. Used in modern OSes.",
       "topic": "CPU Scheduling",
@@ -1095,12 +1095,12 @@
     {
       "question": "What is a hard link vs symbolic (soft) link?",
       "options": [
-        "They are identical",
-        "Hard link: direct pointer to inode (same file); Soft link: separate file containing path to target (can break if target deleted)",
-        "Hard link is faster",
-        "Soft link uses more space"
+        "They are identical used primarily in modern systems with built-in synchronization mechanisms ensuring optimal resource utilization",
+        "Hard link is faster used primarily in modern systems with built-in synchronization mechanisms",
+        "Soft link uses more space used primarily in modern systems with built-in synchronization mechanisms",
+        "Hard link: direct pointer to inode (same file); Soft link: separate file containing path to target (can break if target deleted)"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Hard link: direct pointer to inode (same file); Soft link: separate file containing path to target (can break if target deleted)",
       "explanation": "Hard link: directory entry pointing to inode. Multiple hard links share same inode (same file, same permissions, same data). Deleting one link doesn't delete file until all links removed (link count = 0). Can't cross file systems, can't link directories. Symbolic (soft) link: special file containing pathname to target. Separate inode, can cross file systems, can link directories. If target deleted, soft link becomes broken (dangling). ln creates hard link, ln -s creates soft link.",
       "topic": "File Systems",
@@ -1109,12 +1109,12 @@
     {
       "question": "What is journaling in file systems?",
       "options": [
-        "Logging user activities",
         "Recording file system changes in a log before committing them, enabling crash recovery",
-        "Backing up files",
-        "Compressing data"
+        "Backing up files used primarily in modern systems",
+        "Logging user activities used primarily in modern systems",
+        "Compressing data used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Recording file system changes in a log before committing them, enabling crash recovery",
       "explanation": "Journaling (transaction logging): before modifying file system metadata, write changes to a journal (log). If system crashes, replay journal to complete operations. Ensures file system consistency. Types: 1) Metadata journaling - only metadata logged (faster, NTFS default), 2) Full journaling - both metadata and data logged (safer, slower). Benefits: fast crash recovery (no full fsck needed), consistency. Examples: NTFS (journaling), ext3/ext4 (journaling), XFS (journaling). Trade-off: slight performance overhead for safety.",
       "topic": "File Systems",
@@ -1123,12 +1123,12 @@
     {
       "question": "What are file permissions in Unix (rwx)?",
       "options": [
-        "Only read and write",
-        "Read (r), Write (w), Execute (x) permissions for Owner, Group, and Others",
-        "All users have same permissions",
-        "Permissions don't exist"
+        "All users have same permissions used primarily in modern systems",
+        "Permissions don't exist used primarily in modern systems",
+        "Only read and write used primarily in modern systems",
+        "Read (r), Write (w), Execute (x) permissions for Owner, Group, and Others"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Read (r), Write (w), Execute (x) permissions for Owner, Group, and Others",
       "explanation": "Unix permissions: 3 bits each for Owner, Group, Others. r (read): 4, w (write): 2, x (execute): 1. Example: 'rwxr-xr--' or 754 means Owner:rwx(7), Group:r-x(5), Others:r--(4). For files: r=read, w=modify, x=run. For directories: r=list contents, w=create/delete files, x=access/cd into. Commands: chmod (change), ls -l (view). Special: setuid (run as file owner), setgid (inherit group), sticky bit (only owner can delete, like /tmp).",
       "topic": "File Systems",
@@ -1137,12 +1137,12 @@
     {
       "question": "What is a sparse file?",
       "options": [
-        "A corrupted file",
         "A file with holes (unallocated regions filled with zeros) that don't consume disk space",
-        "A small file",
-        "A compressed file"
+        "A compressed file used primarily in modern systems",
+        "A corrupted file used primarily in modern systems",
+        "A small file used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "A file with holes (unallocated regions filled with zeros) that don't consume disk space",
       "explanation": "Sparse file: appears to have large size but only stores non-zero data. Holes (zero regions) don't occupy disk space. Example: create 1GB file, write only at beginning and end. File size: 1GB, disk usage: few KB. File systems: NTFS, ext4, XFS support sparse files. Created by seeking past data without writing (lseek). Useful for: virtual machine disk images, databases, log files. Commands: 'ls -lh' shows apparent size, 'du' shows actual disk usage. Copy must preserve sparseness.",
       "topic": "File Systems",
@@ -1151,12 +1151,12 @@
     {
       "question": "What is extent-based allocation?",
       "options": [
-        "Allocating one block at a time",
-        "Allocating contiguous groups of blocks (extents) to files, reducing metadata and fragmentation",
-        "Random block allocation",
-        "Virtual memory technique"
+        "Allocating one block at a time used primarily in modern systems",
+        "Random block allocation used primarily in modern systems",
+        "Virtual memory technique used primarily in modern systems",
+        "Allocating contiguous groups of blocks (extents) to files, reducing metadata and fragmentation"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Allocating contiguous groups of blocks (extents) to files, reducing metadata and fragmentation",
       "explanation": "Extent: contiguous sequence of blocks allocated to file. Instead of tracking each 4KB block individually, track extents (e.g., 'blocks 100-199: 100 blocks'). Benefits: 1) Less metadata (one entry for many blocks), 2) Better sequential performance (contiguous), 3) Reduced fragmentation. Used in: ext4 (replaces block mapping), XFS, NTFS, HFS+. File represented as list of extents. Hybrid approach: small files use extents, large fragmented files use traditional allocation. Modern file systems prefer extent-based allocation.",
       "topic": "File Systems",
@@ -1167,8 +1167,8 @@
       "options": [
         "Deletes the file",
         "Sets permissions: rwxr-xr-x (owner: full, group/others: read+execute)",
-        "Renames the file",
-        "Copies the file"
+        "Copies the file",
+        "Renames the file"
       ],
       "answer_index": 1,
       "answer_text": "Sets permissions: rwxr-xr-x (owner: full, group/others: read+execute)",
@@ -1179,12 +1179,12 @@
     {
       "question": "What does 'ls -la' display?",
       "options": [
-        "Only filenames",
         "Long listing including hidden files: permissions, links, owner, group, size, timestamp, filename",
-        "Only file sizes",
-        "Only directories"
+        "Only filenames used primarily in modern systems",
+        "Only file sizes used primarily in modern systems",
+        "Only directories used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Long listing including hidden files: permissions, links, owner, group, size, timestamp, filename",
       "explanation": "ls -la combines: -l (long format), -a (all files including hidden). Output: file type and permissions, number of links, owner, group, size in bytes, modification timestamp, filename. File types: '-' (regular), 'd' (directory), 'l' (symbolic link), 'c' (character device), 'b' (block device). Hidden files start with '.'. Example: 'drwxr-xr-x 2 user group 4096 Jan 1 12:00 mydir'. Essential for examining file details and permissions.",
       "topic": "Practical - File Systems",
@@ -1193,12 +1193,12 @@
     {
       "question": "What does 'df -h' command show?",
       "options": [
-        "List of files",
+        "List of files used primarily in modern systems",
+        "Memory usage used primarily in modern systems",
         "Disk space usage of mounted file systems in human-readable format (GB, MB)",
-        "CPU usage",
-        "Memory usage"
+        "CPU usage used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Disk space usage of mounted file systems in human-readable format (GB, MB)",
       "explanation": "df (disk free) reports file system disk space usage. -h makes human-readable (K, M, G instead of bytes). Columns: Filesystem, Size, Used, Avail, Use%, Mounted on. Shows space for each mounted partition/filesystem. Example: '50G' instead of '52428800'. Use to: check remaining space, identify full disks, see all mount points. Related: 'du' (disk usage) shows space used by files/directories. Essential for monitoring disk usage and preventing full disk issues.",
       "topic": "Practical - File Systems",
@@ -1207,12 +1207,12 @@
     {
       "question": "What does 'mount' command do?",
       "options": [
-        "Shutdown system",
-        "Attach a file system to a directory in the file system tree, making it accessible",
-        "Copy files",
-        "Delete partitions"
+        "Copy files used primarily in modern systems with built-in synchronization mechanisms",
+        "Shutdown system used primarily in modern systems with built-in synchronization mechanisms",
+        "Delete partitions used primarily in modern systems with built-in synchronization mechanisms",
+        "Attach a file system to a directory in the file system tree, making it accessible"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Attach a file system to a directory in the file system tree, making it accessible",
       "explanation": "mount attaches file system from device to mount point (directory). Syntax: 'mount /dev/sdb1 /mnt/usb'. File system becomes accessible at mount point. Without args, lists currently mounted file systems. Options: -t (file system type), -o (mount options like ro, rw, noexec). /etc/fstab lists file systems to mount at boot. umount detaches file system. Must be root to mount (unless fstab allows user). Essential for accessing disks, USB drives, network shares, ISO images.",
       "topic": "Practical - File Systems",
@@ -1221,12 +1221,12 @@
     {
       "question": "What is the purpose of 'vmstat' command?",
       "options": [
-        "Check email",
-        "Report virtual memory statistics: processes, memory, paging, I/O, CPU activity",
-        "Video playback",
-        "Network monitoring"
+        "Check email used primarily in modern systems",
+        "Network monitoring used primarily in modern systems",
+        "Video playback used primarily in modern systems",
+        "Report virtual memory statistics: processes, memory, paging, I/O, CPU activity"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "Report virtual memory statistics: processes, memory, paging, I/O, CPU activity",
       "explanation": "vmstat reports: processes (runnable r, blocked b), memory (swpd, free, buff, cache), swap (si: swapped in, so: swapped out), I/O (bi: blocks in, bo: blocks out), system (in: interrupts, cs: context switches), CPU (us: user, sy: system, id: idle, wa: I/O wait). Example: 'vmstat 1' updates every second. High 'si'/'so' indicates thrashing. High 'wa' means I/O bottleneck. Essential for performance analysis and troubleshooting memory/CPU issues.",
       "topic": "Practical - Memory Management",
@@ -1235,12 +1235,12 @@
     {
       "question": "What does 'ipcs' command display?",
       "options": [
-        "Network connections",
+        "Network connections used primarily in modern systems",
+        "Disk partitions used primarily in modern systems",
         "Information about Inter-Process Communication facilities: shared memory, semaphores, message queues",
-        "CPU information",
-        "Disk partitions"
+        "CPU information used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 2,
       "answer_text": "Information about Inter-Process Communication facilities: shared memory, semaphores, message queues",
       "explanation": "ipcs shows IPC facilities. Columns: key (IPC identifier), shmid/semid/msqid (IPC ID), owner, perms (permissions), bytes/nsems (size), nattch (attached processes). Options: -m (shared memory), -s (semaphores), -q (message queues), -a (all). Shows: resource keys, owners, sizes, attached processes. 'ipcrm' removes IPC resources. Useful for: debugging IPC issues, cleaning up orphaned resources, monitoring IPC usage. Essential tool for IPC development and troubleshooting.",
       "topic": "Practical - IPC",
@@ -1249,12 +1249,12 @@
     {
       "question": "What is the difference between 'grep' and 'find' commands?",
       "options": [
-        "They do the same thing",
         "grep searches text within files for patterns; find searches for files by name, type, size, etc. in directory tree",
-        "find is faster",
-        "grep searches only file names"
+        "find is faster used primarily in modern systems with built-in synchronization mechanisms",
+        "They do the same thing used primarily in modern systems with built-in synchronization mechanisms",
+        "grep searches only file names used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "grep searches text within files for patterns; find searches for files by name, type, size, etc. in directory tree",
       "explanation": "grep (Global Regular Expression Print): searches file contents for patterns. Example: 'grep error log.txt' finds lines containing 'error'. Supports regex. Options: -i (case-insensitive), -r (recursive), -n (line numbers). find: searches for files in directory hierarchy based on criteria. Example: 'find /home -name '*.txt'' finds all .txt files. Criteria: name, size, type, time. Often combined: 'find . -name '*.c' -exec grep main {} \\;' finds main in .c files.",
       "topic": "Practical - File Systems",
@@ -1263,12 +1263,12 @@
     {
       "question": "What does 'lsof' command do?",
       "options": [
-        "List obsolete files",
-        "List open files and the processes that opened them - shows file descriptors, sockets, pipes",
-        "Load system files",
-        "Log system events"
+        "Load system files used primarily in modern systems with built-in synchronization mechanisms",
+        "List obsolete files used primarily in modern systems with built-in synchronization mechanisms",
+        "Log system events used primarily in modern systems with built-in synchronization mechanisms",
+        "List open files and the processes that opened them - shows file descriptors, sockets, pipes"
       ],
-      "answer_index": 1,
+      "answer_index": 3,
       "answer_text": "List open files and the processes that opened them - shows file descriptors, sockets, pipes",
       "explanation": "lsof (LiSt Open Files): shows all open files and processes using them. In Unix, everything is a file (regular files, directories, devices, sockets, pipes). Useful for: finding which process has file open (can't unmount), viewing network connections (lsof -i), finding files opened by process (lsof -p PID). Columns: COMMAND, PID, USER, FD (file descriptor), TYPE, DEVICE, SIZE, NODE, NAME. Example: 'lsof -i :80' shows processes using port 80. Essential for troubleshooting.",
       "topic": "Practical - File Systems",
@@ -1277,12 +1277,12 @@
     {
       "question": "What is the difference between 'free' and 'vmstat' commands?",
       "options": [
-        "They show the same information",
         "free shows static snapshot of memory usage; vmstat shows dynamic statistics including CPU, memory, I/O, and paging activity",
-        "free is for CPU, vmstat for memory",
-        "No difference"
+        "They show the same information used primarily in modern systems with built-in synchronization mechanisms",
+        "No difference used primarily in modern systems with built-in synchronization mechanisms",
+        "free is for CPU, vmstat for memory used primarily in modern systems"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "free shows static snapshot of memory usage; vmstat shows dynamic statistics including CPU, memory, I/O, and paging activity",
       "explanation": "free: simple snapshot of memory. Shows: total, used, free, shared, buff/cache, available. Options: -h (human-readable), -m (MB), -g (GB). Displays RAM and swap usage. Good for quick memory check. vmstat: dynamic system statistics. Shows: processes, memory, swap, I/O, system (interrupts, context switches), CPU. Updates periodically ('vmstat 1'). Includes paging activity (si/so) for detecting thrashing. vmstat is more comprehensive for performance analysis; free is simpler for memory status.",
       "topic": "Practical - Memory Management",
@@ -1291,12 +1291,12 @@
     {
       "question": "What does the 'strace' command do?",
       "options": [
-        "Trace network packets",
         "Trace system calls made by a process - useful for debugging and understanding program behavior",
-        "Trace file changes",
-        "Trace CPU usage"
+        "Trace network packets used primarily in modern systems with built-in synchronization mechanisms",
+        "Trace CPU usage used primarily in modern systems with built-in synchronization mechanisms",
+        "Trace file changes used primarily in modern systems with built-in synchronization mechanisms"
       ],
-      "answer_index": 1,
+      "answer_index": 0,
       "answer_text": "Trace system calls made by a process - useful for debugging and understanding program behavior",
       "explanation": "strace intercepts and records system calls made by a process and signals received. Shows: call name, arguments, return value. Example: 'strace ls' shows all system calls ls makes (open, read, write, etc.). Options: -c (summary), -p PID (attach to running process), -e trace=open (filter calls), -f (follow forks). Use cases: debugging (why program fails), security analysis (what files accessed), performance analysis (expensive calls). Shows actual OS interaction - invaluable debugging tool.",
       "topic": "Practical - Process Management",
